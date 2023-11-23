@@ -1,16 +1,17 @@
 import React from "react";
+import styled from "@emotion/styled";
 
-interface MyComponentProps {
-  name: string;
-}
-
-const MyComponent: React.FC<MyComponentProps> = ({ name }) => {
+const Opening: React.FC = () => {
   return (
     <div>
       {/* <h1>Hello, {name}!</h1> */}
-      <p>This is a simple React component.</p>
+      <Test>This is a simple React component.</Test>
     </div>
   );
 };
 
-export default MyComponent;
+const Test = styled.p`
+  color: red;
+`;
+
+export default Opening;
