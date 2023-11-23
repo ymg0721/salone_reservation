@@ -1,7 +1,7 @@
 // src/router/index.tsx
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Opening from "../components/opening.tsx";
+import Opening from "../pages/opening.tsx";
 
 function RouterApp() {
   return (
