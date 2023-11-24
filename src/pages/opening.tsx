@@ -1,25 +1,56 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import Img from "../img/venereEmi_Icon.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const MyComponent: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // マウント後にアニメーションをトリガーする
     setIsMounted(true);
-    // navigate("/");
   }, []);
+
+  const handleAnimationEnd = () => {
+    navigate("/");
+  };
+
   return (
     <Wrapper>
-      <ImageContainer className={isMounted ? "slide-in" : ""}>
-        <ImgWrapper src={Img} alt="" />
-      </ImageContainer>
+      <ContentContainer>
+        <ImageContainer
+          className={isMounted ? "fade-in" : ""}
+          // onTransitionEnd={handleAnimationEnd}
+        >
+          <ImgWrapper src={Img} alt="" />
+          {isMounted && (
+            <TextContainer>
+              <StyledInput
+                type="button"
+                value="ここをクリックしてください。"
+                onClick={handleAnimationEnd}
+              />
+            </TextContainer>
+          )}
+        </ImageContainer>
+      </ContentContainer>
     </Wrapper>
   );
 };
+
+const StyledInput = styled.input`
+  background: none;
+  border: none;
+  font-family: serif;
+  color: #555;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 3vw;
+
+  &:focus {
+    outline: none;
+  }
+`;
 
 const ImgWrapper = styled.img`
   max-width: 100%;
@@ -28,24 +59,31 @@ const ImgWrapper = styled.img`
 
 const ImageContainer = styled.div`
   opacity: 0;
-  transform: translateY(-50px);
-  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  transition: opacity 1.5s ease-out;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 
-  &.slide-in {
+  &.fade-in {
     opacity: 1;
-    transform: translateY(0);
   }
 `;
 
+const TextContainer = styled.div`
+  text-align: center;
+  color: white;
+`;
+
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Wrapper = styled.div`
-  // padding: 25%;
   background: black;
-  // width: 100vw;
-  // height: 100vh;
 `;
 
 export default MyComponent;
