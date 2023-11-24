@@ -22,14 +22,18 @@ const MyComponent: React.FC = () => {
 };
 
 const ImgWrapper = styled.img`
-  width: 50%;
-  height: 50%;
+  max-width: 100%;
+  max-height: 100%;
 `;
 
 const ImageContainer = styled.div`
   opacity: 0;
   transform: translateY(-50px);
   transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 
   &.slide-in {
     opacity: 1;
@@ -38,10 +42,10 @@ const ImageContainer = styled.div`
 `;
 
 const Wrapper = styled.div`
-  padding: 25%;
+  // padding: 25%;
   background: black;
-  width: 100vw;
-  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
 `;
 
 export default MyComponent;
