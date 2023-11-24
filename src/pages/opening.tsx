@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import Img from "../img/venreEmi_Icon.png";
+import Img from "../img/venereEmi_Icon.png";
+import { useNavigate } from "react-router-dom";
 
 const MyComponent: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // マウント後にアニメーションをトリガーする
     setIsMounted(true);
+    // navigate("/");
   }, []);
   return (
     <Wrapper>
