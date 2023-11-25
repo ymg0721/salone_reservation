@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Img from "../img/venereEmi_Icon.png";
 import { useNavigate } from "react-router";
 
-const MyComponent: React.FC = () => {
+const Opening: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
   const navigate = useNavigate();
 
@@ -12,7 +12,7 @@ const MyComponent: React.FC = () => {
   }, []);
 
   const handleAnimationEnd = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   return (
@@ -86,4 +86,4 @@ const Wrapper = styled.div`
   background: black;
 `;
 
-export default MyComponent;
+export default Opening;
