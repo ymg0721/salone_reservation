@@ -5,18 +5,8 @@ import Footer01 from "../img/footer01.png";
 import Footer02 from "../img/footer02.png";
 import Footer03 from "../img/footer03.png";
 import Footer04 from "../img/footer04.png";
-import TitleImage from "../components/titleImage";
-import HomeNotice from "../components/homeNotice";
 
-const Home: React.FC = () => {
-  const announcements = [
-    {
-      date: "2023-11-25",
-      text: "これは重要なお知らせの本文です。",
-      link: "/details/1",
-    },
-  ];
-
+const List: React.FC = () => {
   const menuItems = [
     {
       label: "作品",
@@ -33,11 +23,6 @@ const Home: React.FC = () => {
   ];
   return (
     <Wrapper>
-      <TitleImage />
-      <h2>お知らせ</h2>
-      {announcements.map((announcement, index) => (
-        <HomeNotice key={index} {...announcement} />
-      ))}
       <Footer menuItems={menuItems} />
     </Wrapper>
   );
@@ -48,4 +33,4 @@ const Wrapper = styled.div`
   height: 100vh;
 `;
 
-export default Home;
+export default List;

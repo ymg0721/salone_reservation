@@ -43,6 +43,7 @@ const FooterStyled = styled.footer`
   position: absolute;
   bottom: 20px;
   width: 90%;
+  align-items: baseline;
 `;
 
 const ImgStyled = styled.img`
