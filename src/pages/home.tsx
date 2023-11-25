@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import Footer from "../components/footer";
 import { announcements } from "../data/announce";
-import { menuItems } from "data/menuItems";
+import { menuItems } from "../data/menuItems";
 import TitleImage from "../components/titleImage";
 import HomeNotice from "../components/homeNotice";
 

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import Footer from "../components/footer";
-import { menuItems } from "data/menuItems";
+import { menuItems } from "../data/menuItems";
 
 const Contact: React.FC = () => {
   // パンくずリスト
