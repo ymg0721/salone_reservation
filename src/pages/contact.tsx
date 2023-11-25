@@ -7,7 +7,7 @@ import { menuItems } from "../data/menuItems";
 const Contact: React.FC = () => {
   // パンくずリスト
   const multipleBreadcrumbs = [
-    { label: "ホーム", to: "/" },
+    { label: "ホーム", to: "/home" },
     { label: "お問い合わせ", to: "/contact" },
   ];
 

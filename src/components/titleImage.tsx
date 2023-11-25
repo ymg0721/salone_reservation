@@ -13,7 +13,7 @@ const TitleImage: React.FC = () => {
   const fadeIn = useSpring({
     opacity: 1,
     from: { opacity: 0 },
-    config: { duration: 2000 * 2 }, // アニメーションの時間を5倍に設定
+    config: config.molasses, // 例: molassesという設定を使用
     reset: true,
     onRest: () => {
       // フェードインが完了したら次の画像に切り替える

@@ -7,7 +7,7 @@ import { menuItems } from "../data/menuItems";
 const Reservation: React.FC = () => {
   // パンくずリスト
   const multipleBreadcrumbs = [
-    { label: "ホーム", to: "/" },
+    { label: "ホーム", to: "/home" },
     { label: "ご予約画面", to: "/reservation" },
   ];
 

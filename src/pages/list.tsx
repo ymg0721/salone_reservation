@@ -9,7 +9,7 @@ import Footer from "../components/footer";
 const List: React.FC = () => {
   // パンくずリスト
   const multipleBreadcrumbs = [
-    { label: "ホーム", to: "/" },
+    { label: "ホーム", to: "/home" },
     { label: "作品一覧画面", to: "/list" },
   ];
 
