@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 interface VerticalComponentProps {
-  value: number;
+  value: string;
   imagePath: string;
   buttonText: string;
   transitionPath: string;
@@ -23,7 +23,7 @@ const VerticalComponent: React.FC<VerticalComponentProps> = ({
 
   return (
     <div style={{ textAlign: "center" }}>
-      <img src={imagePath} alt="" style={{ width: "10vw", height: "10vw" }} />
+      <img src={imagePath} alt="" style={{ width: "15vw", height: "15vw" }} />
       <p>{value}</p>
       <button onClick={handleButtonClick}>{buttonText}</button>
     </div>

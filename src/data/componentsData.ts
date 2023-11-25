@@ -1,14 +1,38 @@
 export const componentsData = [
   {
-    value: 42,
+    value: "フラワー",
     imagePath: "/path/to/image1.png",
-    buttonText: "Go to Page 1",
-    transitionPath: "/target-page-1",
+    buttonText: "詳細へ➡",
+    transitionPath: "/list/detail",
   },
   {
-    value: 99,
+    value: "フラワー",
     imagePath: "/path/to/image2.png",
-    buttonText: "Go to Page 2",
-    transitionPath: "/target-page-2",
+    buttonText: "詳細へ➡",
+    transitionPath: "/list/detail",
+  },
+  {
+    value: "プリザーブト",
+    imagePath: "/path/to/image2.png",
+    buttonText: "詳細へ➡",
+    transitionPath: "/list/detail",
+  },
+  {
+    value: "フラワー",
+    imagePath: "/path/to/image1.png",
+    buttonText: "詳細へ➡",
+    transitionPath: "/list/detail",
+  },
+  {
+    value: "アーティフィシャル",
+    imagePath: "/path/to/image2.png",
+    buttonText: "詳細へ➡",
+    transitionPath: "/list/detail",
+  },
+  {
+    value: "プリザーブト",
+    imagePath: "/path/to/image2.png",
+    buttonText: "詳細へ➡",
+    transitionPath: "/list/detail",
   },
 ];
