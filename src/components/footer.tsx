@@ -32,7 +32,7 @@ const FooterStyled = styled.footer`
   justify-content: space-between;
   margin: 0 4vw;
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   width: 90%;
 `;
 
