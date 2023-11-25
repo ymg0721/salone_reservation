@@ -1,28 +1,19 @@
 import React from "react";
 import styled from "@emotion/styled";
+import HomeLink from "../components/homeLink";
 import Footer from "../components/footer";
-import Footer01 from "../img/footer01.png";
-import Footer02 from "../img/footer02.png";
-import Footer03 from "../img/footer03.png";
-import Footer04 from "../img/footer04.png";
+import { menuItems } from "data/menuItems";
 
 const Reservation: React.FC = () => {
-  const menuItems = [
-    {
-      label: "作品",
-      link: "/list",
-      img: Footer01,
-    },
-    {
-      label: "instagram",
-      link: "https://www.instagram.com/venere_emi/",
-      img: Footer02,
-    },
-    { label: "ご予約", link: "/reservation", img: Footer03 },
-    { label: "お問い合わせ", link: "/contact", img: Footer04 },
+  // パンくずリスト
+  const multipleBreadcrumbs = [
+    { label: "ホーム", to: "/" },
+    { label: "ご予約画面", to: "/reservation" },
   ];
+
   return (
     <Wrapper>
+      <HomeLink items={multipleBreadcrumbs} />
       <Footer menuItems={menuItems} />
     </Wrapper>
   );
