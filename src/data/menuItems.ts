@@ -14,6 +14,6 @@ export const menuItems = [
     link: "https://www.instagram.com/venere_emi/",
     img: Footer02,
   },
-  { label: "ご予約", link: "/reservation", img: Footer03 },
-  { label: "お問い合わせ", link: "/contact", img: Footer04 },
+  { label: "ご予約", link: "/reservation01", img: Footer03 },
+  { label: "お問い合わせ", link: "/contact01", img: Footer04 },
 ];
