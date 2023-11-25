@@ -34,6 +34,8 @@ const ImgWrapperStyled = styled.a`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  font-family: sans-serif;
+  color: black;
 `;
 
 const FooterStyled = styled.footer`

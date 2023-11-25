@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, animated, config } from "react-spring";
-import Footer01 from "../../src/img/footer01.png";
-import Footer02 from "../../src/img/footer02.png";
-import Footer03 from "../../src/img/footer03.png";
-import Footer04 from "../../src/img/footer04.png";
+import Title01 from "../../src/img/title01.jpg";
+import Title02 from "../../src/img/title02.jpg";
+import Title03 from "../../src/img/title03.jpg";
+import Title04 from "../../src/img/title04.jpg";
 
-const images = [Footer01, Footer02, Footer03, Footer04];
+const images = [Title01, Title02, Title03, Title04];
 
 const TitleImage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -27,7 +27,7 @@ const TitleImage: React.FC = () => {
       // フェードインアニメーションをトリガーする
       fadeIn.opacity.set(0);
       fadeIn.opacity.set(1);
-    }, 2000 * 2); // 2秒ごとにトリガーする（5倍遅く）
+    }, 3000 * 2); // 2秒ごとにトリガーする（5倍遅く）
 
     return () => clearInterval(interval);
   }, [fadeIn, currentImageIndex]);
@@ -44,6 +44,8 @@ const TitleImage: React.FC = () => {
           height: "300px", // 高さを一定の値に設定
           objectFit: "cover", // 親要素に合わせて画像を拡大/縮小
           ...fadeIn,
+          boxShadow: "5px 5px 10px rgba(240, 224, 208, 1)",
+          borderRadius: "5px",
         }}
       />
     </div>
