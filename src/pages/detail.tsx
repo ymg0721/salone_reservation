@@ -22,7 +22,8 @@ const Detail: React.FC = () => {
       <CardBackground>
         <ImgWrapper>
           <ImgStyled2 src={Img2} alt="" />
-          <h3>この作品への想い。</h3>
+          <p>この作品への想い。</p>
+          <StyledInput type="button" value="レッスンを申し込む" />
         </ImgWrapper>
         <PStyled>
           あああああああああああああああああああああああああああああああああああああああ
@@ -33,12 +34,27 @@ const Detail: React.FC = () => {
   );
 };
 
+const StyledInput = styled.input`
+  background: none;
+  border: none;
+  font-family: serif;
+  color: #555;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 4vw;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 const ImgWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
 
 const PStyled = styled.p`
+  margin-block-start: 0em;
   padding: 0 20px 20px 20px;
   word-wrap: break-word;
   white-space: pre-wrap;
