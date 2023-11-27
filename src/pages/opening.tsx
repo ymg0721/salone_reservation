@@ -8,6 +8,11 @@ const Opening: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    fetch("http://localhost:8080/books")
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+      });
     setIsMounted(true);
   }, []);
 

@@ -5,7 +5,6 @@ import { announcements } from "../data/announce";
 import { menuItems } from "../data/menuItems";
 import TitleImage from "../components/titleImage";
 import HomeNotice from "../components/homeNotice";
-import { motion } from "framer-motion";
 
 const fadeInAnimation = `
   @keyframes fadeIn {

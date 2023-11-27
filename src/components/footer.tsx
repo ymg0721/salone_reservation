@@ -18,12 +18,10 @@ const FooterMenu: React.FC<FooterMenuProps> = ({ menuItems }) => {
   return (
     <FooterStyled>
       {menuItems.map((item, index) => (
-        <div key={index}>
-          <ImgWrapperStyled href={item.link}>
-            <ImgStyled src={item.img} alt="" />
-            {item.label}
-          </ImgWrapperStyled>
-        </div>
+        <ImgWrapperStyled href={item.link} key={index}>
+          <ImgStyled src={item.img} alt="" />
+          {item.label}
+        </ImgWrapperStyled>
       ))}
     </FooterStyled>
   );
@@ -36,20 +34,25 @@ const ImgWrapperStyled = styled.a`
   align-items: center;
   font-family: sans-serif;
   color: black;
+  border: 1px solid black;
+  padding: 10px;
 `;
 
 const FooterStyled = styled.footer`
-  display: flex;
-  justify-content: space-between;
-  margin: 0 4vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  grid-template-rows: 1fr;
+  color: #fff;
   position: absolute;
-  bottom: 20px;
-  width: 90%;
-  align-items: baseline;
+  bottom: 0px;
 `;
 
 const ImgStyled = styled.img`
-  width: 10vw;
+  max-width: 50px;
+  max-height: 70px;
+  width: 100%;
+  height: 100%;
 `;
 
 export default FooterMenu;
