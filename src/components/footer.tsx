@@ -35,7 +35,9 @@ const ImgWrapperStyled = styled.a`
   font-family: sans-serif;
   color: black;
   border: 1px solid black;
+  border: 2px solid #ffc9c9;
   padding: 10px;
+  border-radius: 30px;
 `;
 
 const FooterStyled = styled.footer`
@@ -46,6 +48,7 @@ const FooterStyled = styled.footer`
   color: #fff;
   position: absolute;
   bottom: 0px;
+  background-color: #e9ecef;
 `;
 
 const ImgStyled = styled.img`
