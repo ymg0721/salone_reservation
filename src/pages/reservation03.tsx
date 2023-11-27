@@ -43,7 +43,7 @@ const WrapperStyled = styled.div`
 `;
 
 const Wrapper = styled.div`
-  background: pink;
+  background: rgb(247, 246, 245);
   height: 100vh;
 `;
 

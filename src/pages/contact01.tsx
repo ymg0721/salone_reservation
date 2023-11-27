@@ -15,15 +15,19 @@ const Contact01: React.FC = () => {
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
       <WrapperStyled>
-        <h1>
+        <H1Wrapper>
           なんでもお気軽に
           <br />
           ご相談・お問い合わせください！
-        </h1>
-        <h2>ご自身のメールアドレス</h2>
+        </H1Wrapper>
+        <H2Wrapper>ご自身のメールアドレス</H2Wrapper>
         <input type="text" />
         <h2>お問い合わせ内容</h2>
-        <input type="text" placeholder="ご自由にお書きください！" />
+        <input
+          type="text"
+          placeholder="ご自由にお書きください！"
+          style={{ width: "100%" }}
+        />
         <br />
         <br />
         <a href="/contact02">
@@ -35,6 +39,14 @@ const Contact01: React.FC = () => {
   );
 };
 
+const H1Wrapper = styled.h1`
+  font-family: var(--s-font-3e9e7a4c);
+`;
+
+const H2Wrapper = styled.h2`
+  font-family: var(--s-font-3e9e7a4c);
+`;
+
 const WrapperStyled = styled.div`
   overflowy: auto;
   max-height: 500px;
@@ -42,7 +54,7 @@ const WrapperStyled = styled.div`
 `;
 
 const Wrapper = styled.div`
-  background: pink;
+  background: rgb(247, 246, 245);
   height: 100vh;
 `;
 

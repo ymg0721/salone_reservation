@@ -1,4 +1,4 @@
-import Footer01 from "../img/4987.png"; // 画像のimport例
+import Footer01 from "../img/footer01.png"; // 画像のimport例
 import Footer02 from "../img/footer02.svg";
 import Footer03 from "../img/footer03.png";
 import Footer04 from "../img/footer04.svg";
