@@ -1,10 +1,33 @@
 import React from "react";
 import styled from "@emotion/styled";
+import axios from "axios";
 import HomeLink from "../components/homeLink";
 import Footer from "../components/footer";
 import { menuItems } from "../data/menuItems";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Contact02: React.FC = () => {
+  const location = useLocation();
+  const { email, message } = location.state || {};
+  const navigate = useNavigate();
+  const handleSubmit = async () => {
+    try {
+      await axios.post(
+        "http://localhost:3001/api/v1/contact02",
+        {
+          email,
+          message,
+        },
+        { withCredentials: true }
+      );
+      navigate("/contact03", { state: { email, message } });
+      console.log("バック3に内容が送信されました。");
+    } catch (err) {
+      console.error("送信に失敗", err);
+    }
+  };
+
   // パンくずリスト
   const multipleBreadcrumbs = [
     { label: "ホーム", to: "/home" },
@@ -18,14 +41,12 @@ const Contact02: React.FC = () => {
       <WrapperStyled>
         <h1>お問い合わせ内容確認</h1>
         <h2>ご自身のメールアドレス</h2>
-        <p style={{ textDecoration: "underline" }}>aaaaaaaa</p>
+        <p style={{ textDecoration: "underline" }}>{email}</p>
         <h2>お問い合わせ内容</h2>
-        <p style={{ textDecoration: "underline" }}>aaaaaaaa</p>
+        <p style={{ textDecoration: "underline" }}>{message}</p>
         <br />
         <br />
-        <a href="/contact03">
-          <input type="button" value="送信する" />
-        </a>
+        <button onClick={handleSubmit}>送信</button>
       </WrapperStyled>
       <Footer menuItems={menuItems} />
     </Wrapper>
