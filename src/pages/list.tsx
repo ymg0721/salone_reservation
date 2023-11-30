@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import axios from "axios";
 import HomeLink from "../components/homeLink";
@@ -21,7 +22,7 @@ const List: React.FC = () => {
     { label: "作品一覧画面", to: "/list" },
   ];
   const [data, setData] = useState<ListType[]>([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetch("http://localhost:3001/api/v1/list")
       .then((res) => res.json())
@@ -43,6 +44,10 @@ const List: React.FC = () => {
     return rows;
   };
 
+  const handleEvent = () => {
+    navigate("/list/detail", { state: data });
+  };
+
   return (
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
@@ -52,17 +57,17 @@ const List: React.FC = () => {
           maxHeight: "500px",
           display: "flex",
           width: "100%",
-          justifyContent: "spaceEvenly",
+          justifyContent: "space-evenly",
         }}
       >
         {data.map((item) => (
-          <div
+          <DataWrapper
             key={item.id}
             style={{
               display: "flex",
               marginBottom: "10vw",
               marginTop: "10vw",
-              justifyContent: "space-evenly",
+              justifyContent: "space-around",
               flexDirection: "column",
             }}
           >
@@ -75,7 +80,8 @@ const List: React.FC = () => {
             />
             <h2>{item.title}</h2>
             <p>{item.date}</p>
-          </div>
+            <button onClick={handleEvent}>詳細画面へ</button>
+          </DataWrapper>
         ))}
       </div>
       <Footer menuItems={menuItems} />
@@ -86,6 +92,14 @@ const List: React.FC = () => {
 const Wrapper = styled.div`
   background: rgb(247, 246, 245);
   height: 100vh;
+`;
+
+const DataWrapper = styled.div`
+  display: flex;
+  margin-bottom: 10vw;
+  margin-top: 10vw;
+  justify-content: space-around;
+  flex-direction: column;
 `;
 
 export default List;
