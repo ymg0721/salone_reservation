@@ -21,6 +21,7 @@ const List: React.FC = () => {
     { label: "ホーム", to: "/home" },
     { label: "作品一覧画面", to: "/list" },
   ];
+  // 作品一覧画面全データ
   const [data, setData] = useState<ListType[]>([]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -31,6 +32,8 @@ const List: React.FC = () => {
         console.log(json, "作品のDBに接続できました");
       });
   }, []);
+
+  // 二個ずつで改行する処理
   const renderComponents = () => {
     const rows: JSX.Element[][] = [];
     for (let i = 0; i < componentsData.length; i += 2) {
@@ -44,33 +47,23 @@ const List: React.FC = () => {
     return rows;
   };
 
-  const handleEvent = () => {
-    navigate("/list/detail", { state: data });
+  const handleEvent = (item: ListType) => {
+    navigate("/list/detail", {
+      state: {
+        id: item.id,
+        src: item.src,
+        title: item.title,
+        date: item.date,
+      },
+    });
   };
 
   return (
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
-      <div
-        style={{
-          overflowY: "auto",
-          maxHeight: "500px",
-          display: "flex",
-          width: "100%",
-          justifyContent: "space-evenly",
-        }}
-      >
+      <ListWrapper>
         {data.map((item) => (
-          <DataWrapper
-            key={item.id}
-            style={{
-              display: "flex",
-              marginBottom: "10vw",
-              marginTop: "10vw",
-              justifyContent: "space-around",
-              flexDirection: "column",
-            }}
-          >
+          <DataWrapper key={item.id}>
             <img
               src={item.src}
               alt=""
@@ -80,10 +73,10 @@ const List: React.FC = () => {
             />
             <h2>{item.title}</h2>
             <p>{item.date}</p>
-            <button onClick={handleEvent}>詳細画面へ</button>
+            <button onClick={() => handleEvent(item)}>詳細画面へ</button>
           </DataWrapper>
         ))}
-      </div>
+      </ListWrapper>
       <Footer menuItems={menuItems} />
     </Wrapper>
   );
@@ -100,6 +93,14 @@ const DataWrapper = styled.div`
   margin-top: 10vw;
   justify-content: space-around;
   flex-direction: column;
+`;
+
+const ListWrapper = styled.div`
+  overflow-y: auto;
+  max-height: 500px;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 `;
 
 export default List;

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
+import { useLocation } from "react-router-dom";
 import Footer from "../components/footer";
 import Img from "../img/footer01.png";
 import Img2 from "../img/flower.svg";
@@ -13,12 +14,22 @@ const Detail: React.FC = () => {
     { label: "作品一覧画面", to: "/list" },
     { label: "作品詳細画面", to: "/list/detail" },
   ];
+  const location = useLocation();
+  const { state } = location;
 
+  // stateから必要なデータを取り出す
+  const { id, src, title, date } = state;
+  console.log(id);
+  console.log(src);
+  console.log(title);
+  console.log(date);
   return (
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
       {/* ↓コンポーネント化予定 */}
-      <ImgStyled src={Img} alt="" />
+      <ImgStyled src={src} alt="" />
+      <h2>{title}</h2>
+      <h3>{date}</h3>
       <CardBackground>
         <ImgWrapper>
           <ImgStyled2 src={Img2} alt="" />

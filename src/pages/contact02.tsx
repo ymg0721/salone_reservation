@@ -4,13 +4,13 @@ import axios from "axios";
 import HomeLink from "../components/homeLink";
 import Footer from "../components/footer";
 import { menuItems } from "../data/menuItems";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Contact02: React.FC = () => {
   const location = useLocation();
-  const { email, message } = location.state || {};
   const navigate = useNavigate();
+  const { email, message } = location.state || {};
+
   const handleSubmit = async () => {
     try {
       await axios.post(
