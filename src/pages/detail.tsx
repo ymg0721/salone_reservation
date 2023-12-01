@@ -18,7 +18,7 @@ const Detail: React.FC = () => {
   const { state } = location;
 
   // stateから必要なデータを取り出す
-  const { id, src, title, date } = state;
+  const { id, src, title, date, text } = state;
   console.log(id);
   console.log(src);
   console.log(title);
@@ -36,9 +36,7 @@ const Detail: React.FC = () => {
           <p>この作品への想い。</p>
           <StyledInput type="button" value="レッスンを申し込む" />
         </ImgWrapper>
-        <PStyled>
-          あああああああああああああああああああああああああああああああああああああああ
-        </PStyled>
+        <PStyled>{text}</PStyled>
       </CardBackground>
       <Footer menuItems={menuItems} />
     </Wrapper>

@@ -10,9 +10,10 @@ import { componentsData } from "../data/componentsData";
 
 interface ListType {
   id: number;
-  src: string;
-  title: string;
-  date: string;
+  src?: string;
+  title?: string;
+  date?: string;
+  text?: string;
 }
 
 const List: React.FC = () => {
@@ -54,6 +55,7 @@ const List: React.FC = () => {
         src: item.src,
         title: item.title,
         date: item.date,
+        text: item.text,
       },
     });
   };
@@ -73,6 +75,7 @@ const List: React.FC = () => {
             />
             <h2>{item.title}</h2>
             <p>{item.date}</p>
+            <text style={{ display: "none" }}>{item.text}</text>
             <button onClick={() => handleEvent(item)}>詳細画面へ</button>
           </DataWrapper>
         ))}
