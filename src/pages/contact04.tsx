@@ -35,7 +35,7 @@ const WrapperStyled = styled.div`
 
 const Wrapper = styled.div`
   background: rgb(247, 246, 245);
-  height: 100vh;
+  height: 100%;
 `;
 
 export default Contact04;

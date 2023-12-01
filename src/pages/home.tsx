@@ -45,7 +45,7 @@ const H2Wrapper = styled.h3`
 
 const Wrapper = styled.div`
   background: #f7f6f5;
-  height: 100vh;
+  height: 100%;
 `;
 
 const NewsWrapper = styled.div`

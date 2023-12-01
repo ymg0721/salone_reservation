@@ -15,7 +15,7 @@ const Reservation01: React.FC = () => {
   return (
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
-      <div style={{ overflowY: "auto", maxHeight: "500px" }}>
+      <div style={{ overflowY: "auto" }}>
         <Calender />
         <h3>選択可能レッスン一覧</h3>
         {/* チケットコンポーネント */}
@@ -41,7 +41,7 @@ const TicketStyled = styled.div`
 
 const Wrapper = styled.div`
   background: rgb(247, 246, 245);
-  height: 100vh;
+  height: 100%;
 `;
 
 export default Reservation01;

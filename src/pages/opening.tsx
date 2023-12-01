@@ -69,7 +69,7 @@ const ImageContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
 
   &.fade-in {
     opacity: 1;
@@ -85,6 +85,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `;
 
 const Wrapper = styled.div`

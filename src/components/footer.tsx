@@ -46,7 +46,7 @@ const FooterStyled = styled.footer`
   width: 100%;
   grid-template-rows: 1fr;
   color: #fff;
-  position: absolute;
+  position: relative;
   bottom: 0px;
   background-color: #e9ecef;
 `;

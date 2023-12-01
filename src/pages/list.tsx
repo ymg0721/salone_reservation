@@ -87,7 +87,7 @@ const List: React.FC = () => {
 
 const Wrapper = styled.div`
   background: rgb(247, 246, 245);
-  height: 100vh;
+  height: 100%;
 `;
 
 const DataWrapper = styled.div`

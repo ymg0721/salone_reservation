@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/footer";
 import Img from "../img/footer01.png";
 import Img2 from "../img/flower.svg";
@@ -15,14 +15,14 @@ const Detail: React.FC = () => {
     { label: "作品詳細画面", to: "/list/detail" },
   ];
   const location = useLocation();
+  const navigate = useNavigate();
   const { state } = location;
 
   // stateから必要なデータを取り出す
   const { id, src, title, date, text } = state;
-  console.log(id);
-  console.log(src);
-  console.log(title);
-  console.log(date);
+  const handleEvent = () => {
+    navigate("/reservation01", {});
+  };
   return (
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
@@ -34,7 +34,11 @@ const Detail: React.FC = () => {
         <ImgWrapper>
           <ImgStyled2 src={Img2} alt="" />
           <p>この作品への想い。</p>
-          <StyledInput type="button" value="レッスンを申し込む" />
+          <StyledInput
+            type="button"
+            value="レッスンを申し込む"
+            onClick={handleEvent}
+          />
         </ImgWrapper>
         <PStyled>{text}</PStyled>
       </CardBackground>
@@ -92,7 +96,7 @@ const CardBackground = styled.div`
 
 const Wrapper = styled.div`
   background: rgb(247, 246, 245);
-  height: 100vh;
+  height: 100%;
 `;
 
 export default Detail;
