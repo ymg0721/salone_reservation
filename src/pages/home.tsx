@@ -46,6 +46,10 @@ const H2Wrapper = styled.h3`
 const Wrapper = styled.div`
   background: #f7f6f5;
   height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
 `;
 
 const NewsWrapper = styled.div`
