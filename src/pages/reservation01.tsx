@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { format } from "date-fns";
 import HomeLink from "../components/homeLink";
@@ -24,7 +24,7 @@ const Reservation01: React.FC = () => {
 
   const [selectedDate, setSelectedDate] = useState("");
   const [data, setData] = useState<ReservationType[]>([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   useEffect(() => {
     fetch("http://localhost:3001/api/v1/calender")
       .then((res) => res.json())

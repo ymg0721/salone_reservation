@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import Footer from "../components/footer";
@@ -13,23 +14,32 @@ const Reservation: React.FC = () => {
     { label: "ご予約画面➂", to: "/reservation03" },
   ];
 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { state } = location;
+  const { name, email, phone } = state;
+
+  const handleEvent = () => {
+    navigate("/reservation04", { state: { name } });
+  };
+
   return (
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
       <WrapperStyled>
         <h1>ご予約確定画面へ</h1>
         <h2>ご自身のお名前：</h2>
-        <p style={{ textDecoration: "underline" }}>aaaaaaaa</p>
+        <p style={{ textDecoration: "underline" }}>{name}</p>
         <h2>ご自身のメールアドレス:</h2>
-        <p style={{ textDecoration: "underline" }}>aaaaaaaa</p>
+        <p style={{ textDecoration: "underline" }}>{email}</p>
         <h2>ご自身のお電話番号：</h2>
-        <p style={{ textDecoration: "underline" }}>aaaaaaaa</p>
+        <p style={{ textDecoration: "underline" }}>{phone}</p>
         <h2>レッスン日程：</h2>
         <p style={{ textDecoration: "underline" }}>aaaaaaaa</p>
         <br /> <br />
-        <a href="/reservation04">
-          <input type="button" value="この内容で確定する" />
-        </a>
+        <button type="button" onClick={handleEvent}>
+          この内容で確定する
+        </button>
       </WrapperStyled>
       <Footer menuItems={menuItems} />
     </Wrapper>

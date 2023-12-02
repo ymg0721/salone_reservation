@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/footer";
-import Img from "../img/footer01.png";
 import Img2 from "../img/flower.svg";
 import { menuItems } from "../data/menuItems";
 
@@ -19,7 +18,7 @@ const Detail: React.FC = () => {
   const { state } = location;
 
   // stateから必要なデータを取り出す
-  const { id, src, title, date, text } = state;
+  const { src, title, date, text } = state;
   const handleEvent = () => {
     navigate("/reservation01", {});
   };

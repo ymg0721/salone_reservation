@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import Footer from "../components/footer";
@@ -14,6 +15,10 @@ const Reservation: React.FC = () => {
     { label: "ご予約画面➃", to: "/reservation04" },
   ];
 
+  const location = useLocation();
+  const { state } = location;
+  const { name } = state;
+
   return (
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
@@ -21,7 +26,7 @@ const Reservation: React.FC = () => {
         <h1>
           予約が確定しました！
           <br />
-          山田花子様のお越しを
+          {name}様のお越しを
           <br />
           お待ちしております！
         </h1>
