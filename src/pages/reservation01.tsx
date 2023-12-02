@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { format } from "date-fns";
 import HomeLink from "../components/homeLink";
 import Footer from "../components/footer";
 import Calendar from "../components/calender";
 import { menuItems } from "../data/menuItems";
+
+interface ReservationType {
+  id: number;
+  src?: string;
+  title?: string;
+  date?: string;
+  detail?: string;
+}
 
 const Reservation01: React.FC = () => {
   // パンくずリスト
@@ -14,12 +23,20 @@ const Reservation01: React.FC = () => {
   ];
 
   const [selectedDate, setSelectedDate] = useState("");
-  const handleDayClick = (date: Date) => {
-    // 選択された日付に対する処理をここに書く
-    console.log(selectedDate);
+  const [data, setData] = useState<ReservationType[]>([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    fetch("http://localhost:3001/api/v1/calender")
+      .then((res) => res.json())
+      .then((json) => {
+        setData(json);
+        console.log(json, "作品のDBに接続できました");
+      });
+  }, []);
 
+  // 日付を選択する関数
+  const handleDayClick = (date: Date) => {
     const formattedDate = date ? format(date, "yyyy/MM/dd") : "";
-    console.log(formattedDate);
     setSelectedDate(formattedDate);
   };
 
@@ -28,14 +45,26 @@ const Reservation01: React.FC = () => {
       <HomeLink items={multipleBreadcrumbs} />
       <div style={{ overflowY: "auto" }}>
         <Calendar onDayClick={handleDayClick} />
-        <h3>{String(selectedDate)}選択可能レッスン一覧</h3>
-        {/* チケットコンポーネント */}
-        <a href="/reservation02">
-          <TicketStyled>
-            <h4>ミモザ</h4>
-            <time dateTime="2023-11-25">2023/11/25</time>
-          </TicketStyled>
-        </a>
+        {selectedDate && data.some((item) => item.date === selectedDate) ? (
+          <>
+            <h3>{String(selectedDate)}選択可能レッスン一覧</h3>
+            <a href="/reservation02">
+              <TicketStyled>
+                <img
+                  src={data.find((item) => item.date === selectedDate)?.src}
+                  alt=""
+                />
+                <h4>
+                  {data.find((item) => item.date === selectedDate)?.title}
+                </h4>
+                <p>{data.find((item) => item.date === selectedDate)?.detail}</p>
+                <time dateTime={selectedDate}>{selectedDate}</time>
+              </TicketStyled>
+            </a>
+          </>
+        ) : (
+          <p>選択された日付のレッスンはありません。</p>
+        )}
       </div>
       <Footer menuItems={menuItems} />
     </Wrapper>
