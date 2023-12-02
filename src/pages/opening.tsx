@@ -8,11 +8,11 @@ const Opening: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:8080/books")
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
-      });
+    // fetch("http://localhost:8080/books")
+    //   .then((res) => res.json())
+    //   .then((json) => {
+    //     console.log(json);
+    //   });
     setIsMounted(true);
   }, []);
 
@@ -23,10 +23,7 @@ const Opening: React.FC = () => {
   return (
     <Wrapper>
       <ContentContainer>
-        <ImageContainer
-          className={isMounted ? "fade-in" : ""}
-          // onTransitionEnd={handleAnimationEnd}
-        >
+        <ImageContainer className={isMounted ? "fade-in" : ""}>
           <ImgWrapper src={Img} alt="" />
           {isMounted && (
             <TextContainer>

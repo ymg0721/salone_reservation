@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import Footer from "../components/footer";
-import Calender from "../components/calender";
+import Calendar from "../components/calender";
 import { menuItems } from "../data/menuItems";
 
 const Reservation01: React.FC = () => {
@@ -16,7 +16,7 @@ const Reservation01: React.FC = () => {
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
       <div style={{ overflowY: "auto" }}>
-        <Calender />
+        <Calendar />
         <h3>選択可能レッスン一覧</h3>
         {/* チケットコンポーネント */}
         <a href="/reservation02">

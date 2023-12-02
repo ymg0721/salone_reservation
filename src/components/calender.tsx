@@ -1,13 +1,116 @@
-import React from "react";
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
+// Calendar.tsx
+import React, { useState } from "react";
+import styled from "@emotion/styled";
+import {
+  format,
+  addMonths,
+  subMonths,
+  startOfMonth,
+  endOfMonth,
+  addDays,
+  isSameMonth,
+  isSameDay,
+  getDay,
+} from "date-fns";
 
-function Calender() {
+const Container = styled.div`
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Day = styled.div<{ isCurrentMonth: boolean; isSelected: boolean }>`
+  width: calc(100% / 7);
+  box-sizing: border-box;
+  text-align: center;
+  padding: 8px;
+  cursor: pointer;
+  background-color: ${(props) =>
+    props.isSelected
+      ? "#3498db"
+      : props.isCurrentMonth
+      ? "transparent"
+      : "none"};
+  color: ${(props) =>
+    props.isSelected ? "#fff" : props.isCurrentMonth ? "#333" : "#aaa"};
+`;
+
+const Header = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+const WeekDay = styled.div`
+  width: calc(100% / 7);
+  box-sizing: border-box;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  color: #333;
+`;
+
+const getDaysInMonth = (date: Date): Array<Date | null> => {
+  const start = startOfMonth(date);
+  const end = endOfMonth(date);
+  const days = [];
+  let currentDay = start;
+
+  while (currentDay <= end) {
+    days.push(currentDay);
+    currentDay = addDays(currentDay, 1);
+  }
+
+  // Add leading blank days if the month does not start on a Sunday
+  const firstDayOfMonth = getDay(start);
+  for (let i = 0; i < firstDayOfMonth; i++) {
+    days.unshift(null);
+  }
+
+  return days;
+};
+
+const Calendar: React.FC = () => {
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+
+  const daysInMonth = getDaysInMonth(currentMonth).map((date) => ({
+    date,
+    isCurrentMonth: date ? isSameMonth(date, currentMonth) : false,
+    isSelected: date ? isSameDay(date, new Date()) : false,
+  }));
+
+  const handlePrevMonth = () => setCurrentMonth(subMonths(currentMonth, 1));
+  const handleNextMonth = () => setCurrentMonth(addMonths(currentMonth, 1));
+
+  const handleDayClick = (date: Date) => {
+    // Add your logic for handling day selection
+    console.log("Selected Date:", date);
+  };
+
   return (
-    <div>
-      <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" />
-    </div>
+    <Container>
+      <Header>
+        <button onClick={handlePrevMonth}>&lt;</button>
+        <h2 style={{ margin: "0" }}>{format(currentMonth, "MMMM yyyy")}</h2>
+        <button onClick={handleNextMonth}>&gt;</button>
+      </Header>
+      {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, index) => (
+        <WeekDay key={index}>{day}</WeekDay>
+      ))}
+      {daysInMonth.map((day, index) => (
+        <Day
+          key={index}
+          isCurrentMonth={day ? day.isCurrentMonth : false}
+          isSelected={day ? day.isSelected : false}
+          onClick={() => day && day.date && handleDayClick(day.date)}
+        >
+          {day && day.date ? format(day.date, "d") : ""}
+        </Day>
+      ))}
+    </Container>
   );
-}
+};
 
-export default Calender;
+export default Calendar;
