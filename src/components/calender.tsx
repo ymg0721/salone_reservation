@@ -13,6 +13,10 @@ import {
   getDay,
 } from "date-fns";
 
+interface CalendarProps {
+  onDayClick: (date: Date) => void;
+}
+
 const Container = styled.div`
   font-family: "Arial", sans-serif;
   display: flex;
@@ -72,7 +76,7 @@ const getDaysInMonth = (date: Date): Array<Date | null> => {
   return days;
 };
 
-const Calendar: React.FC = () => {
+const Calendar: React.FC<CalendarProps> = ({ onDayClick }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
 
   const daysInMonth = getDaysInMonth(currentMonth).map((date) => ({
@@ -84,9 +88,8 @@ const Calendar: React.FC = () => {
   const handlePrevMonth = () => setCurrentMonth(subMonths(currentMonth, 1));
   const handleNextMonth = () => setCurrentMonth(addMonths(currentMonth, 1));
 
-  const handleDayClick = (date: Date) => {
-    // Add your logic for handling day selection
-    console.log("Selected Date:", date);
+  const handleClick = (date: Date) => {
+    onDayClick(date);
   };
 
   return (
@@ -104,7 +107,7 @@ const Calendar: React.FC = () => {
           key={index}
           isCurrentMonth={day ? day.isCurrentMonth : false}
           isSelected={day ? day.isSelected : false}
-          onClick={() => day && day.date && handleDayClick(day.date)}
+          onClick={() => day && day.date && handleClick(day.date)}
         >
           {day && day.date ? format(day.date, "d") : ""}
         </Day>

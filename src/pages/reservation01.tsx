@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
+import { format } from "date-fns";
 import HomeLink from "../components/homeLink";
 import Footer from "../components/footer";
 import Calendar from "../components/calender";
@@ -12,12 +13,22 @@ const Reservation01: React.FC = () => {
     { label: "ご予約画面➀", to: "/reservation01" },
   ];
 
+  const [selectedDate, setSelectedDate] = useState("");
+  const handleDayClick = (date: Date) => {
+    // 選択された日付に対する処理をここに書く
+    console.log(selectedDate);
+
+    const formattedDate = date ? format(date, "yyyy/MM/dd") : "";
+    console.log(formattedDate);
+    setSelectedDate(formattedDate);
+  };
+
   return (
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
       <div style={{ overflowY: "auto" }}>
-        <Calendar />
-        <h3>選択可能レッスン一覧</h3>
+        <Calendar onDayClick={handleDayClick} />
+        <h3>{String(selectedDate)}選択可能レッスン一覧</h3>
         {/* チケットコンポーネント */}
         <a href="/reservation02">
           <TicketStyled>
