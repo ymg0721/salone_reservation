@@ -5,6 +5,7 @@ import { announcements } from "../data/announce";
 import { menuItems } from "../data/menuItems";
 import TitleImage from "../components/titleImage";
 import HomeNotice from "../components/homeNotice";
+import LogoTitle from "../img/logo.png";
 
 const fadeInAnimation = `
   @keyframes fadeIn {
@@ -24,15 +25,29 @@ const Container = styled.div`
 
 const Home: React.FC = () => {
   const titleImageId = document.getElementById("titleImage");
+  const footerId = document.getElementById("footer");
   const titleImageY = titleImageId?.offsetHeight || 0;
+  const footerY = footerId?.offsetHeight || 0;
 
   return (
     <Container>
       <Wrapper>
         <TitleImage />
+        <header
+          style={{
+            width: "-webkit-fill-available",
+            position: "absolute",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+          }}
+        >
+          <h1 style={{ color: "white" }}>Venere Emi Flower Salone</h1>
+          <img src={LogoTitle} alt="" style={{ width: "30%" }} />
+        </header>
         <div
           style={{
-            height: `${titleImageY}px`,
+            height: `100%`,
             width: "-webkit-fill-available",
             position: "absolute",
             overflow: "hidden",
@@ -46,6 +61,21 @@ const Home: React.FC = () => {
             ))}
           </NewsWrapper>
         </div>
+
+        <a
+          href="#"
+          style={{
+            backgroundColor: "#1cb4d3",
+            bottom: `${footerY}px`,
+            color: "#fff",
+            padding: "20px",
+            position: "fixed",
+            right: "0",
+          }}
+        >
+          レッスンのご予約
+        </a>
+
         <Footer menuItems={menuItems} />
       </Wrapper>
     </Container>
@@ -66,10 +96,10 @@ const Wrapper = styled.div`
 `;
 
 const NewsWrapper = styled.div`
-  margin: 80vw 5vw 5vw 5vw;
+  margin: 70vw 5vw 5vw 5vw;
   height: 1000px;
   width: -webkit-fill-available;
-  background: antiquewhite;
+  backdrop-filter: blur(100px);
   opacity: 0.75;
   border-radius: 24px;
 `;
