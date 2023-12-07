@@ -24,9 +24,9 @@ const Container = styled.div`
 `;
 
 const Home: React.FC = () => {
-  const titleImageId = document.getElementById("titleImage");
+  const titleImageId = document.getElementById("a");
   const footerId = document.getElementById("footer");
-  const titleImageY = titleImageId?.offsetHeight || 0;
+  const aY = titleImageId?.offsetHeight || 0;
   const footerY = footerId?.offsetHeight || 0;
 
   return (
@@ -40,6 +40,7 @@ const Home: React.FC = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-start",
+            zIndex: "1",
           }}
         >
           <h1 style={{ color: "white" }}>Venere Emi Flower Salone</h1>
@@ -61,17 +62,31 @@ const Home: React.FC = () => {
             ))}
           </NewsWrapper>
         </div>
-
         <a
-          href="#"
+          href="/home"
           style={{
             backgroundColor: "#1cb4d3",
-            bottom: `${footerY}px`,
+            bottom: `162px`,
             color: "#fff",
             padding: "20px",
             position: "fixed",
             right: "0",
           }}
+          id="a"
+        >
+          ホームへ戻る
+        </a>
+        <a
+          href="/reservation01"
+          style={{
+            backgroundColor: "#1cb4d3",
+            bottom: `98px`,
+            color: "#fff",
+            padding: "20px",
+            position: "fixed",
+            right: "0",
+          }}
+          id="a"
         >
           レッスンのご予約
         </a>
@@ -88,7 +103,7 @@ const H2Wrapper = styled.h3`
 
 const Wrapper = styled.div`
   background: #f7f6f5;
-  height: 100%;
+  height: ${window.innerHeight}px;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;

@@ -35,7 +35,7 @@ const TitleImage: React.FC = () => {
   const imageSrc = images[currentImageIndex];
 
   return (
-    <div id="titleImage">
+    <div id="titleImage" style={{ height: `${window.innerHeight}px` }}>
       <animated.img
         src={imageSrc}
         alt={`Image ${currentImageIndex + 1}`}
