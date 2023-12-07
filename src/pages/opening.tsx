@@ -87,9 +87,9 @@ const ContentContainer = styled.div`
 
 const Wrapper = styled.div`
   background: black;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
 `;
 
