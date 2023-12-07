@@ -35,13 +35,14 @@ const TitleImage: React.FC = () => {
   const imageSrc = images[currentImageIndex];
 
   return (
-    <div>
+    <div id="titleImage">
       <animated.img
         src={imageSrc}
         alt={`Image ${currentImageIndex + 1}`}
         style={{
+          position: "relative",
           width: "100%", // 幅を100%に設定
-          height: "300px", // 高さを一定の値に設定
+          height: "100%", // 高さを一定の値に設定
           objectFit: "cover", // 親要素に合わせて画像を拡大/縮小
           ...fadeIn,
           boxShadow: "5px 5px 10px rgba(240, 224, 208, 1)",

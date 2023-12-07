@@ -23,16 +23,29 @@ const Container = styled.div`
 `;
 
 const Home: React.FC = () => {
+  const titleImageId = document.getElementById("titleImage");
+  const titleImageY = titleImageId?.offsetHeight || 0;
+
   return (
     <Container>
       <Wrapper>
         <TitleImage />
-        <NewsWrapper>
-          <H2Wrapper>お知らせ</H2Wrapper>
-          {announcements.map((announcement, index) => (
-            <HomeNotice key={index} {...announcement} />
-          ))}
-        </NewsWrapper>
+        <div
+          style={{
+            height: `${titleImageY}px`,
+            width: "-webkit-fill-available",
+            position: "absolute",
+            overflow: "hidden",
+            overflowY: "scroll",
+          }}
+        >
+          <NewsWrapper>
+            <H2Wrapper>お知らせ</H2Wrapper>
+            {announcements.map((announcement, index) => (
+              <HomeNotice key={index} {...announcement} />
+            ))}
+          </NewsWrapper>
+        </div>
         <Footer menuItems={menuItems} />
       </Wrapper>
     </Container>
@@ -53,7 +66,12 @@ const Wrapper = styled.div`
 `;
 
 const NewsWrapper = styled.div`
-  margin: 5vw;
+  margin: 80vw 5vw 5vw 5vw;
+  height: 1000px;
+  width: -webkit-fill-available;
+  background: antiquewhite;
+  opacity: 0.75;
+  border-radius: 24px;
 `;
 
 export default Home;

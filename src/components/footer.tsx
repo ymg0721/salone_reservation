@@ -16,7 +16,7 @@ interface FooterMenuProps {
 // フッターメニューコンポーネント
 const FooterMenu: React.FC<FooterMenuProps> = ({ menuItems }) => {
   return (
-    <FooterStyled>
+    <FooterStyled id="footer">
       {menuItems.map((item, index) => (
         <ImgWrapperStyled href={item.link} key={index}>
           <ImgStyled src={item.img} alt="" />
@@ -29,6 +29,7 @@ const FooterMenu: React.FC<FooterMenuProps> = ({ menuItems }) => {
 
 const ImgWrapperStyled = styled.a`
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
@@ -41,8 +42,7 @@ const ImgWrapperStyled = styled.a`
 `;
 
 const FooterStyled = styled.footer`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   width: 100%;
   grid-template-rows: 1fr;
   color: #fff;
