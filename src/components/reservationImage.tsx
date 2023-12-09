@@ -50,7 +50,7 @@ const ReservationImage: React.FC = () => {
 
 const Wrapper = styled.div`
   height: 100%;
-  margin-top: 10vw;
+  position: relative;
 `;
 
 const AnimatedStyled = styled(animated.img)`
