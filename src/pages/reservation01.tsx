@@ -40,22 +40,37 @@ const Reservation01: React.FC = () => {
   return (
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
+      <Calendar onDayClick={handleDayClick} />
       <ReservationWrapper>
-        <Calendar onDayClick={handleDayClick} />
         {selectedDate && data.some((item) => item.date === selectedDate) ? (
           <>
             <h3>{String(selectedDate)}選択可能レッスン一覧</h3>
-            <a href="/reservation02">
+            <a
+              href="/reservation02"
+              style={{ color: "black", textDecoration: "none" }}
+            >
               <TicketStyled>
                 <img
                   src={data.find((item) => item.date === selectedDate)?.src}
                   alt=""
+                  style={{ borderRadius: "15px" }}
                 />
-                <h4>
-                  {data.find((item) => item.date === selectedDate)?.title}
-                </h4>
-                <p>{data.find((item) => item.date === selectedDate)?.detail}</p>
-                <time dateTime={selectedDate}>{selectedDate}</time>
+                <H4Wrapper>
+                  <time
+                    dateTime={selectedDate}
+                    style={{
+                      textDecoration: "underline",
+                    }}
+                  >
+                    {selectedDate}
+                  </time>
+                  <h2>
+                    {data.find((item) => item.date === selectedDate)?.title}
+                  </h2>
+                  <p>
+                    {data.find((item) => item.date === selectedDate)?.detail}
+                  </p>
+                </H4Wrapper>
               </TicketStyled>
             </a>
           </>
@@ -67,12 +82,16 @@ const Reservation01: React.FC = () => {
   );
 };
 
+const H4Wrapper = styled.div`
+  margin-left: 5vw;
+`;
+
 const TicketStyled = styled.div`
-  margin: 20px;
-  padding: 10px;
+  display: flex;
+  padding: 3vw;
   height: 100%;
-  border: 1px solid gray;
   background-color: #f0d0f0;
+  border-radius: 30px;
 `;
 
 const Wrapper = styled.div`
@@ -86,6 +105,8 @@ const Wrapper = styled.div`
 
 const ReservationWrapper = styled.div`
   overflow-y: auto;
+  margin: 3vw 8vw;
+  padding: 0vw 0 10vw;
 `;
 
 export default Reservation01;

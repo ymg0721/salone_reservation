@@ -80,6 +80,7 @@ const Calendar: React.FC<CalendarProps> = ({ onDayClick }) => {
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin: 8vw 5vw 5vw;
 `;
 
 const Day = styled.div<{ isCurrentMonth: boolean; isSelected: boolean }>`
@@ -99,6 +100,7 @@ const Day = styled.div<{ isCurrentMonth: boolean; isSelected: boolean }>`
 `;
 
 const Header = styled.div`
+  align-items: baseline;
   width: 100%;
   text-align: center;
   margin-bottom: 10px;
