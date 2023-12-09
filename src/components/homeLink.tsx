@@ -22,7 +22,9 @@ const HomeLink: React.FC<BreadcrumbsProps> = ({ items }) => {
             }`}
           >
             {item.to ? (
-              <Link to={item.to}>{item.label}</Link>
+              <Link to={item.to} style={{ color: "black" }}>
+                {item.label}
+              </Link>
             ) : (
               <span>{item.label}</span>
             )}
@@ -38,7 +40,7 @@ const HomeLink: React.FC<BreadcrumbsProps> = ({ items }) => {
 
 const HomeLinkStyled = styled.div`
   display: flex;
-  padding: 20px 0 0 20px;
+  padding: 20vw 0 0 10vw;
 `;
 
 export default HomeLink;

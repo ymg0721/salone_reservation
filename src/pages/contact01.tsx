@@ -20,8 +20,16 @@ const Contact01: React.FC = () => {
         },
         { withCredentials: true }
       );
-      navigate("/contact02", { state: { email, message } });
-      console.log("バックに内容が送信されました。");
+
+      if (email === "" && message === "") {
+        alert("メールアドレスと\nお問い合わせ内容を入力してください。");
+      } else if (email === "") {
+        alert("メールアドレスを入力してください。");
+      } else if (message === "") {
+        alert("お問い合わせ内容を入力してください。");
+      } else {
+        navigate("/contact02", { state: { email, message } });
+      }
     } catch (err) {
       console.error("送信に失敗", err);
     }
@@ -41,30 +49,26 @@ const Contact01: React.FC = () => {
           <br />
           ご相談・お問い合わせください！
         </h1>
-        <h2>ご自身のメールアドレス</h2>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <h2>お問い合わせ内容</h2>
-        <textarea
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <br />
-        <br />
-        <button onClick={handleSubmit}>送信</button>
+        <WrapperStyled02>
+          <h2>ご自身のメールアドレス</h2>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <h2>お問い合わせ内容</h2>
+          <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <br />
+          <br />
+          <button onClick={handleSubmit}>送信</button>
+        </WrapperStyled02>
       </WrapperStyled>
     </Wrapper>
   );
 };
-
-const WrapperStyled = styled.div`
-  overflow-y: auto;
-  max-height: 500px;
-  margin: 20px 10vw;
-`;
 
 const Wrapper = styled.div`
   background: rgb(247, 246, 245);
@@ -73,6 +77,17 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
+`;
+
+const WrapperStyled = styled.div`
+  overflow-y: auto;
+  margin: 20px 10vw;
+`;
+
+const WrapperStyled02 = styled.div`
+  margin: 10vw auto;
+  width: 100%;
+  text-align: center;
 `;
 
 export default Contact01;
