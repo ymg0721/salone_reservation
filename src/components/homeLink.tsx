@@ -40,7 +40,7 @@ const HomeLink: React.FC<BreadcrumbsProps> = ({ items }) => {
 
 const HomeLinkStyled = styled.div`
   display: flex;
-  padding: 20vw 0 0 10vw;
+  padding: 3vw 0 0 10vw;
 `;
 
 export default HomeLink;

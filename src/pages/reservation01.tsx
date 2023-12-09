@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { format } from "date-fns";
 import HomeLink from "../components/homeLink";
 import Calendar from "../components/calender";
+import ReservationImage from "../components/reservationImage";
 
 interface ReservationType {
   id: number;
@@ -27,7 +28,6 @@ const Reservation01: React.FC = () => {
       .then((res) => res.json())
       .then((json) => {
         setData(json);
-        console.log(json, "作品のDBに接続できました");
       });
   }, []);
 
@@ -39,45 +39,56 @@ const Reservation01: React.FC = () => {
 
   return (
     <Wrapper>
-      <HomeLink items={multipleBreadcrumbs} />
-      <Calendar onDayClick={handleDayClick} />
-      <ReservationWrapper>
-        {selectedDate && data.some((item) => item.date === selectedDate) ? (
-          <>
-            <h3>{String(selectedDate)}選択可能レッスン一覧</h3>
-            <a
-              href="/reservation02"
-              style={{ color: "black", textDecoration: "none" }}
-            >
-              <TicketStyled>
-                <img
-                  src={data.find((item) => item.date === selectedDate)?.src}
-                  alt=""
-                  style={{ borderRadius: "15px", margin: "3vw" }}
-                />
-                <H4Wrapper>
-                  <time
-                    dateTime={selectedDate}
-                    style={{
-                      textDecoration: "underline",
-                    }}
-                  >
-                    {selectedDate}
-                  </time>
-                  <h2>
-                    {data.find((item) => item.date === selectedDate)?.title}
-                  </h2>
-                  <p>
-                    {data.find((item) => item.date === selectedDate)?.detail}
-                  </p>
-                </H4Wrapper>
-              </TicketStyled>
-            </a>
-          </>
-        ) : (
-          <p>選択された日付のレッスンはありません。</p>
-        )}
-      </ReservationWrapper>
+      <ReservationImage />
+      <div
+        style={{
+          position: "absolute",
+          backdropFilter: "blur(70px)",
+          marginTop: "30vw",
+          marginLeft: "10vw",
+          marginRight: "10vw",
+        }}
+      >
+        <HomeLink items={multipleBreadcrumbs} />
+        <Calendar onDayClick={handleDayClick} />
+        <ReservationWrapper>
+          {selectedDate && data.some((item) => item.date === selectedDate) ? (
+            <>
+              <h3>{String(selectedDate)}選択可能レッスン一覧</h3>
+              <a
+                href="/reservation02"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                <TicketStyled>
+                  <img
+                    src={data.find((item) => item.date === selectedDate)?.src}
+                    alt=""
+                    style={{ borderRadius: "15px", margin: "3vw" }}
+                  />
+                  <H4Wrapper>
+                    <time
+                      dateTime={selectedDate}
+                      style={{
+                        textDecoration: "underline",
+                      }}
+                    >
+                      {selectedDate}
+                    </time>
+                    <h2>
+                      {data.find((item) => item.date === selectedDate)?.title}
+                    </h2>
+                    <p>
+                      {data.find((item) => item.date === selectedDate)?.detail}
+                    </p>
+                  </H4Wrapper>
+                </TicketStyled>
+              </a>
+            </>
+          ) : (
+            <p>選択された日付のレッスンはありません。</p>
+          )}
+        </ReservationWrapper>
+      </div>
     </Wrapper>
   );
 };

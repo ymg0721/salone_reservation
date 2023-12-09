@@ -80,7 +80,7 @@ const Calendar: React.FC<CalendarProps> = ({ onDayClick }) => {
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 8vw 5vw 5vw;
+  margin: 5vw 5vw 2vw;
 `;
 
 const Day = styled.div<{ isCurrentMonth: boolean; isSelected: boolean }>`
