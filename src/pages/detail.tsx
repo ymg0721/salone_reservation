@@ -79,16 +79,15 @@ const PStyled = styled.p`
 
 const ImgStyled = styled.img`
   display: block;
-  margin: 30px auto;
-  max-width: 100%;
-  height: auto;
+  margin: 5vw auto 3vw;
+  max-height: 20vw;
+  max-width: 20vw;
 `;
 
 const ImgStyled2 = styled.img`
   display: block;
   margin: 10px;
   max-width: 100%;
-  height: auto;
 `;
 
 const CardBackground = styled.div`
@@ -99,11 +98,12 @@ const CardBackground = styled.div`
 
 const Wrapper = styled.div`
   background: rgb(247, 246, 245);
-  height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   padding-top: 20vw;
+  width: -webkit-fill-available;
+  position: absolute;
 `;
 
 export default Detail;
