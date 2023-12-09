@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import VerticalComponent from "../components/vertical";
 import { componentsData } from "../data/componentsData";
+import ListImage from "../components/listImage";
+import DetailWrapper from "../components/detailWrapper";
 
 interface ListType {
   id: number;
@@ -59,31 +61,32 @@ const List: React.FC = () => {
 
   return (
     <Wrapper>
-      <HomeLink items={multipleBreadcrumbs} />
-      <ListWrapper>
-        {data.map((item) => (
-          <DataWrapper key={item.id}>
-            <ImgWrapper src={item.src} alt="" />
-            <h2>{item.title}</h2>
-            <p>{item.date}</p>
-            <TextWrapper>{item.text}</TextWrapper>
-            <button onClick={() => handleEvent(item)}>詳細画面へ</button>
-          </DataWrapper>
-        ))}
-      </ListWrapper>
+      <ListImage />
+      <DetailWrapper>
+        <HomeLink items={multipleBreadcrumbs} />
+        <ListWrapper>
+          {data.map((item) => (
+            <DataWrapper key={item.id}>
+              <ImgWrapper src={item.src} alt="" />
+              <h2>{item.title}</h2>
+              <p>{item.date}</p>
+              <TextWrapper>{item.text}</TextWrapper>
+              <button onClick={() => handleEvent(item)}>詳細画面へ</button>
+            </DataWrapper>
+          ))}
+        </ListWrapper>
+      </DetailWrapper>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  margin: 0 5vw;
   backdrop-filter: blur(70px);
   height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
-  padding-top: 20vw;
 `;
 
 const DataWrapper = styled.div`

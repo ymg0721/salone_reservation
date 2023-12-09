@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import Img2 from "../img/flower.svg";
+import DetailImage from "../components/detailImage";
+import DetailWrapper from "../components/detailWrapper";
 
 const Detail: React.FC = () => {
   // パンくずリスト
@@ -22,23 +24,26 @@ const Detail: React.FC = () => {
   };
   return (
     <Wrapper>
-      <HomeLink items={multipleBreadcrumbs} />
-      {/* ↓コンポーネント化予定 */}
-      <ImgStyled src={src} alt="" />
-      <H3Wrapper>{date}</H3Wrapper>
-      <H2Wrapper>{title}</H2Wrapper>
-      <CardBackground>
-        <ImgWrapper>
-          <ImgStyled2 src={Img2} alt="" />
-          <p>この作品への想い。</p>
-          <StyledInput
-            type="button"
-            value="レッスンを申し込む"
-            onClick={handleEvent}
-          />
-        </ImgWrapper>
-        <PStyled>{text}</PStyled>
-      </CardBackground>
+      <DetailImage />
+      <DetailWrapper>
+        <HomeLink items={multipleBreadcrumbs} />
+        {/* ↓コンポーネント化予定 */}
+        <ImgStyled src={src} alt="" />
+        <H3Wrapper>{date}</H3Wrapper>
+        <H2Wrapper>{title}</H2Wrapper>
+        <CardBackground>
+          <ImgWrapper>
+            <ImgStyled2 src={Img2} alt="" />
+            <p>この作品への想い。</p>
+            <StyledInput
+              type="button"
+              value="レッスンを申し込む"
+              onClick={handleEvent}
+            />
+          </ImgWrapper>
+          <PStyled>{text}</PStyled>
+        </CardBackground>
+      </DetailWrapper>
     </Wrapper>
   );
 };
