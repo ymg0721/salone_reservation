@@ -44,6 +44,7 @@ const Reservation01: React.FC = () => {
         style={{
           position: "absolute",
           backdropFilter: "blur(70px)",
+          width: "-webkit-fill-available",
           marginTop: "30vw",
           marginLeft: "10vw",
           marginRight: "10vw",

@@ -25,8 +25,8 @@ const Detail: React.FC = () => {
       <HomeLink items={multipleBreadcrumbs} />
       {/* ↓コンポーネント化予定 */}
       <ImgStyled src={src} alt="" />
-      <h2>{title}</h2>
-      <h3>{date}</h3>
+      <H3Wrapper>{date}</H3Wrapper>
+      <H2Wrapper>{title}</H2Wrapper>
       <CardBackground>
         <ImgWrapper>
           <ImgStyled2 src={Img2} alt="" />
@@ -42,6 +42,14 @@ const Detail: React.FC = () => {
     </Wrapper>
   );
 };
+
+const H2Wrapper = styled.h2`
+  margin: 1vw 10vw;
+`;
+
+const H3Wrapper = styled.h3`
+  margin: 1vw 10vw;
+`;
 
 const StyledInput = styled.input`
   background: none;
@@ -86,7 +94,7 @@ const ImgStyled2 = styled.img`
 const CardBackground = styled.div`
   background-color: gray;
   height: auto;
-  margin: 20px 10vw 0;
+  margin: 3vw 10vw 0;
 `;
 
 const Wrapper = styled.div`
@@ -95,7 +103,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
-  min-height: 100vh;
+  padding-top: 20vw;
 `;
 
 export default Detail;

@@ -76,7 +76,8 @@ const List: React.FC = () => {
 };
 
 const Wrapper = styled.div`
-  background: rgb(247, 246, 245);
+  margin: 0 5vw;
+  backdrop-filter: blur(70px);
   height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -105,7 +106,7 @@ const ImgWrapper = styled.img`
   width: 10vw;
 `;
 
-const TextWrapper = styled.text`
+const TextWrapper = styled.p`
   display: none;
 `;
 
