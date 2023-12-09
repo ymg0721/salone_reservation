@@ -53,7 +53,7 @@ const Reservation01: React.FC = () => {
                 <img
                   src={data.find((item) => item.date === selectedDate)?.src}
                   alt=""
-                  style={{ borderRadius: "15px" }}
+                  style={{ borderRadius: "15px", margin: "3vw" }}
                 />
                 <H4Wrapper>
                   <time
@@ -84,11 +84,15 @@ const Reservation01: React.FC = () => {
 
 const H4Wrapper = styled.div`
   margin-left: 5vw;
+  padding: 3vw 5vw;
+  border-radius: 0 30px 30px 0;
+  background: antiquewhite;
+  width: 60%;
 `;
 
 const TicketStyled = styled.div`
   display: flex;
-  padding: 3vw;
+  // padding: 3vw;
   height: 100%;
   background-color: #f0d0f0;
   border-radius: 30px;
