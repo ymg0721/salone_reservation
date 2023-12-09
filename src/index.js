@@ -20,7 +20,7 @@ const AWrapper02 = styled.a`
 
 const HeaderWrapper = styled.header`
   width: -webkit-fill-available;
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;

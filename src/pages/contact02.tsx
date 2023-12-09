@@ -63,6 +63,7 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
+  padding-top: 20vw;
 `;
 
 const PWrapper = styled.p`
