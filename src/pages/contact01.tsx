@@ -77,11 +77,12 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
+  padding-top: 20vw;
 `;
 
 const WrapperStyled = styled.div`
   overflow-y: auto;
-  margin: 20px 10vw;
+  margin: 2vw 10vw;
 `;
 
 const WrapperStyled02 = styled.div`
