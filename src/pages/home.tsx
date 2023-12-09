@@ -30,22 +30,14 @@ const Home: React.FC = () => {
     <Container>
       <Wrapper>
         <TitleImage />
-        <div
-          style={{
-            height: `100%`,
-            width: "-webkit-fill-available",
-            position: "absolute",
-            overflow: "hidden",
-            overflowY: "scroll",
-          }}
-        >
-          <NewsWrapper>
+        <NewsWrapper01>
+          <NewsWrapper02>
             <H2Wrapper>お知らせ</H2Wrapper>
             {announcements.map((announcement, index) => (
               <HomeNotice key={index} {...announcement} />
             ))}
-          </NewsWrapper>
-        </div>
+          </NewsWrapper02>
+        </NewsWrapper01>
       </Wrapper>
     </Container>
   );
@@ -63,7 +55,15 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `;
 
-const NewsWrapper = styled.div`
+const NewsWrapper01 = styled.div`
+  height: 100%;
+  width: -webkit-fill-available;
+  position: absolute;
+  overflow: hidden;
+  overflow-y: scroll;
+`;
+
+const NewsWrapper02 = styled.div`
   margin: 70vw 5vw 5vw 5vw;
   height: 1000px;
   width: -webkit-fill-available;

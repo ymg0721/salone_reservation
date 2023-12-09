@@ -36,7 +36,7 @@ const TitleImage: React.FC = () => {
   const imageSrc = images[currentImageIndex];
 
   return (
-    <div id="titleImage" style={{ height: `${window.innerHeight}px` }}>
+    <Wrapper id="titleImage">
       <AnimatedStyled
         src={imageSrc}
         alt={`Image ${currentImageIndex + 1}`}
@@ -44,9 +44,13 @@ const TitleImage: React.FC = () => {
           ...fadeIn,
         }}
       />
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  height: ${window.innerHeight}px;
+`;
 
 const AnimatedStyled = styled(animated.img)`
   position: relative;

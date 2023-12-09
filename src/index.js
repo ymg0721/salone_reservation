@@ -8,18 +8,10 @@ import styled from "@emotion/styled";
 import "./index.css";
 import LogoTitle from "./img/logo.png";
 
-const AWrapper01 = styled.a`
-  background-color: #1cb4d3;
-  bottom: 162px;
-  color: #fff;
-  padding: 20px;
-  position: fixed;
-  right: 0;
-`;
-
 const AWrapper02 = styled.a`
   background-color: #1cb4d3;
   bottom: 98px;
+  border-radius: 50px;
   color: #fff;
   padding: 20px;
   position: fixed;
@@ -35,25 +27,28 @@ const HeaderWrapper = styled.header`
   z-index: 1;
 `;
 
+const H1Wrapper = styled.h1`
+  color: white;
+`;
+
+const ImgWrapper = styled.img`
+  width: 30%;
+`;
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <div>
       {window.location.pathname !== "/" && (
         <HeaderWrapper>
-          <h1 style={{ color: "white" }}>Venere Emi Flower Salone</h1>
-          <img src={LogoTitle} alt="" style={{ width: "30%" }} />
+          <H1Wrapper>Venere Emi Flower Salone</H1Wrapper>
+          <ImgWrapper src={LogoTitle} alt="" />
         </HeaderWrapper>
       )}
       <RouterApp />
       {window.location.pathname !== "/" && (
-        <AWrapper01 href="/home" id="a1">
-          ホームへ戻る
-        </AWrapper01>
-      )}
-      {window.location.pathname !== "/" && (
-        <AWrapper02 href="/reservation01" id="a2">
-          レッスンのご予約
+        <AWrapper02 href="/home" id="a2">
+          ホームへ
         </AWrapper02>
       )}
       {window.location.pathname !== "/" && <FooterMenu menuItems={menuItems} />}

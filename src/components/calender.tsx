@@ -17,45 +17,6 @@ interface CalendarProps {
   onDayClick: (date: Date) => void;
 }
 
-const Container = styled.div`
-  font-family: "Arial", sans-serif;
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const Day = styled.div<{ isCurrentMonth: boolean; isSelected: boolean }>`
-  width: calc(100% / 7);
-  box-sizing: border-box;
-  text-align: center;
-  padding: 8px;
-  cursor: pointer;
-  background-color: ${(props) =>
-    props.isSelected
-      ? "#3498db"
-      : props.isCurrentMonth
-      ? "transparent"
-      : "none"};
-  color: ${(props) =>
-    props.isSelected ? "#fff" : props.isCurrentMonth ? "#333" : "#aaa"};
-`;
-
-const Header = styled.div`
-  width: 100%;
-  text-align: center;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-evenly;
-`;
-
-const WeekDay = styled.div`
-  width: calc(100% / 7);
-  box-sizing: border-box;
-  text-align: center;
-  padding: 8px;
-  font-weight: bold;
-  color: #333;
-`;
-
 const getDaysInMonth = (date: Date): Array<Date | null> => {
   const start = startOfMonth(date);
   const end = endOfMonth(date);
@@ -96,7 +57,7 @@ const Calendar: React.FC<CalendarProps> = ({ onDayClick }) => {
     <Container>
       <Header>
         <button onClick={handlePrevMonth}>&lt;</button>
-        <h2 style={{ margin: "0" }}>{format(currentMonth, "MMMM yyyy")}</h2>
+        <H2Wrapper>{format(currentMonth, "MMMM yyyy")}</H2Wrapper>
         <button onClick={handleNextMonth}>&gt;</button>
       </Header>
       {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, index) => (
@@ -115,5 +76,48 @@ const Calendar: React.FC<CalendarProps> = ({ onDayClick }) => {
     </Container>
   );
 };
+
+const Container = styled.div`
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Day = styled.div<{ isCurrentMonth: boolean; isSelected: boolean }>`
+  width: calc(100% / 7);
+  box-sizing: border-box;
+  text-align: center;
+  padding: 8px;
+  cursor: pointer;
+  background-color: ${(props) =>
+    props.isSelected
+      ? "#3498db"
+      : props.isCurrentMonth
+      ? "transparent"
+      : "none"};
+  color: ${(props) =>
+    props.isSelected ? "#fff" : props.isCurrentMonth ? "#333" : "#aaa"};
+`;
+
+const Header = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+const WeekDay = styled.div`
+  width: calc(100% / 7);
+  box-sizing: border-box;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  color: #333;
+`;
+
+const H2Wrapper = styled.h2`
+  margin: 0;
+`;
 
 export default Calendar;

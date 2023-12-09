@@ -23,13 +23,17 @@ const VerticalComponent: React.FC<VerticalComponentProps> = ({
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <Wrapper>
       <ImgWrapper src={imagePath} alt="" />
       <p>{value}</p>
       <button onClick={handleButtonClick}>{buttonText}</button>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  textalign: center;
+`;
 
 const ImgWrapper = styled.img`
   width: 15vw;

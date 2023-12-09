@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import { format } from "date-fns";
 import HomeLink from "../components/homeLink";
@@ -41,7 +40,7 @@ const Reservation01: React.FC = () => {
   return (
     <Wrapper>
       <HomeLink items={multipleBreadcrumbs} />
-      <div style={{ overflowY: "auto" }}>
+      <ReservationWrapper>
         <Calendar onDayClick={handleDayClick} />
         {selectedDate && data.some((item) => item.date === selectedDate) ? (
           <>
@@ -63,7 +62,7 @@ const Reservation01: React.FC = () => {
         ) : (
           <p>選択された日付のレッスンはありません。</p>
         )}
-      </div>
+      </ReservationWrapper>
     </Wrapper>
   );
 };
@@ -83,6 +82,10 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
+`;
+
+const ReservationWrapper = styled.div`
+  overflow-y: auto;
 `;
 
 export default Reservation01;

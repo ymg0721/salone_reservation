@@ -27,13 +27,13 @@ const Reservation: React.FC = () => {
       <WrapperStyled>
         <h1>ご予約確定画面へ</h1>
         <h2>ご自身のお名前：</h2>
-        <p style={{ textDecoration: "underline" }}>{name}</p>
+        <PWrapper>{name}</PWrapper>
         <h2>ご自身のメールアドレス:</h2>
-        <p style={{ textDecoration: "underline" }}>{email}</p>
+        <PWrapper>{email}</PWrapper>
         <h2>ご自身のお電話番号：</h2>
-        <p style={{ textDecoration: "underline" }}>{phone}</p>
+        <PWrapper>{phone}</PWrapper>
         <h2>レッスン日程：</h2>
-        <p style={{ textDecoration: "underline" }}>aaaaaaaa</p>
+        <PWrapper>aaaaaaaa</PWrapper>
         <br /> <br />
         <button type="button" onClick={handleEvent}>
           この内容で確定する
@@ -56,6 +56,10 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
+`;
+
+const PWrapper = styled.p`
+  textdecoration: underline;
 `;
 
 export default Reservation;

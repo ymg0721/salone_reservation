@@ -63,16 +63,10 @@ const List: React.FC = () => {
       <ListWrapper>
         {data.map((item) => (
           <DataWrapper key={item.id}>
-            <img
-              src={item.src}
-              alt=""
-              style={{
-                width: "10vw",
-              }}
-            />
+            <ImgWrapper src={item.src} alt="" />
             <h2>{item.title}</h2>
             <p>{item.date}</p>
-            <text style={{ display: "none" }}>{item.text}</text>
+            <TextWrapper>{item.text}</TextWrapper>
             <button onClick={() => handleEvent(item)}>詳細画面へ</button>
           </DataWrapper>
         ))}
@@ -104,6 +98,14 @@ const ListWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+`;
+
+const ImgWrapper = styled.img`
+  width: 10vw;
+`;
+
+const TextWrapper = styled.text`
+  display: none;
 `;
 
 export default List;
