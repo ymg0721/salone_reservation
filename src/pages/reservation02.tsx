@@ -30,8 +30,18 @@ const Reservation: React.FC = () => {
         },
         { withCredentials: true }
       );
-      navigate("/reservation03", { state: { name, email, phone } });
-      console.log("バックに内容が送信されました。");
+
+      if (name === "" && email === "" && phone === "") {
+        alert("入力していない箇所があります");
+      } else if (name === "") {
+        alert("入力していない箇所があります");
+      } else if (email === "") {
+        alert("入力していない箇所があります");
+      } else if (phone === "") {
+        alert("入力していない箇所があります");
+      } else {
+        navigate("/reservation03", { state: { name, email, phone } });
+      }
     } catch (err) {
       console.error("送信に失敗", err);
     }
@@ -80,6 +90,7 @@ const WrapperStyled = styled.div`
 `;
 
 const Wrapper = styled.div`
+  padding-top: 20vw;
   background: rgb(247, 246, 245);
   height: 100%;
   display: grid;
