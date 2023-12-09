@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
+import ContactImage from "../components/contactImage";
 
 const Contact01: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -42,30 +43,42 @@ const Contact01: React.FC = () => {
 
   return (
     <Wrapper>
-      <HomeLink items={multipleBreadcrumbs} />
-      <WrapperStyled>
-        <h1>
-          なんでもお気軽に
-          <br />
-          ご相談・お問い合わせください！
-        </h1>
-        <WrapperStyled02>
-          <h2>ご自身のメールアドレス</h2>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <h2>お問い合わせ内容</h2>
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <br />
-          <br />
-          <button onClick={handleSubmit}>送信</button>
-        </WrapperStyled02>
-      </WrapperStyled>
+      <ContactImage />
+      <div
+        style={{
+          position: "absolute",
+          backdropFilter: "blur(70px)",
+          width: "-webkit-fill-available",
+          marginTop: "30vw",
+          marginLeft: "10vw",
+          marginRight: "10vw",
+        }}
+      >
+        <HomeLink items={multipleBreadcrumbs} />
+        <WrapperStyled>
+          <h1>
+            なんでもお気軽に
+            <br />
+            ご相談・お問い合わせください！
+          </h1>
+          <WrapperStyled02>
+            <h2>ご自身のメールアドレス</h2>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <h2>お問い合わせ内容</h2>
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <br />
+            <br />
+            <button onClick={handleSubmit}>送信</button>
+          </WrapperStyled02>
+        </WrapperStyled>
+      </div>
     </Wrapper>
   );
 };
@@ -77,7 +90,6 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
-  padding-top: 20vw;
 `;
 
 const WrapperStyled = styled.div`
