@@ -2,8 +2,6 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
-import Footer from "../components/footer";
-import { menuItems } from "../data/menuItems";
 
 const Reservation: React.FC = () => {
   // パンくずリスト
@@ -32,7 +30,6 @@ const Reservation: React.FC = () => {
         </h1>
         {/* TODO：アニメーションコンポーネント追加 */}
       </WrapperStyled>
-      <Footer menuItems={menuItems} />
     </Wrapper>
   );
 };

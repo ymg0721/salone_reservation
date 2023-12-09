@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
-import Footer from "../components/footer";
-import { menuItems } from "../data/menuItems";
 
 const Reservation: React.FC = () => {
   const [name, setName] = useState("");
@@ -71,13 +69,12 @@ const Reservation: React.FC = () => {
           確定画面へ➡
         </button>
       </WrapperStyled>
-      <Footer menuItems={menuItems} />
     </Wrapper>
   );
 };
 
 const WrapperStyled = styled.div`
-  overflowy: auto;
+  overflow-y: auto;
   max-height: 500px;
   margin: 20px 10vw;
 `;

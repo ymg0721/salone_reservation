@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, animated, config } from "react-spring";
+import styled from "@emotion/styled";
 import Title01 from "../../src/img/title01.jpg";
 import Title02 from "../../src/img/title02.jpg";
 import Title03 from "../../src/img/title03.jpg";
@@ -36,21 +37,24 @@ const TitleImage: React.FC = () => {
 
   return (
     <div id="titleImage" style={{ height: `${window.innerHeight}px` }}>
-      <animated.img
+      <AnimatedStyled
         src={imageSrc}
         alt={`Image ${currentImageIndex + 1}`}
         style={{
-          position: "relative",
-          width: "100%", // 幅を100%に設定
-          height: "100%", // 高さを一定の値に設定
-          objectFit: "cover", // 親要素に合わせて画像を拡大/縮小
           ...fadeIn,
-          boxShadow: "5px 5px 10px rgba(240, 224, 208, 1)",
-          borderRadius: "5px",
         }}
       />
     </div>
   );
 };
+
+const AnimatedStyled = styled(animated.img)`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 5px 5px 10px rgba(240, 224, 208, 1);
+  border-radius: 5px;
+`;
 
 export default TitleImage;

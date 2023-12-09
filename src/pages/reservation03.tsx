@@ -2,8 +2,6 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
-import Footer from "../components/footer";
-import { menuItems } from "../data/menuItems";
 
 const Reservation: React.FC = () => {
   // パンくずリスト
@@ -41,7 +39,6 @@ const Reservation: React.FC = () => {
           この内容で確定する
         </button>
       </WrapperStyled>
-      <Footer menuItems={menuItems} />
     </Wrapper>
   );
 };

@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
-import Footer from "../components/footer";
-import { menuItems } from "../data/menuItems";
 
 const Contact01: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -58,7 +56,6 @@ const Contact01: React.FC = () => {
         <br />
         <button onClick={handleSubmit}>送信</button>
       </WrapperStyled>
-      <Footer menuItems={menuItems} />
     </Wrapper>
   );
 };
@@ -72,7 +69,7 @@ const H2Wrapper = styled.h2`
 `;
 
 const WrapperStyled = styled.div`
-  overflowy: auto;
+  overflow-y: auto;
   max-height: 500px;
   margin: 20px 10vw;
 `;

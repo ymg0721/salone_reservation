@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "@emotion/styled";
 
 interface VerticalComponentProps {
   value: string;
@@ -23,11 +24,16 @@ const VerticalComponent: React.FC<VerticalComponentProps> = ({
 
   return (
     <div style={{ textAlign: "center" }}>
-      <img src={imagePath} alt="" style={{ width: "15vw", height: "15vw" }} />
+      <ImgWrapper src={imagePath} alt="" />
       <p>{value}</p>
       <button onClick={handleButtonClick}>{buttonText}</button>
     </div>
   );
 };
+
+const ImgWrapper = styled.img`
+  width: 15vw;
+  height: 15vw;
+`;
 
 export default VerticalComponent;

@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
-import axios from "axios";
 import HomeLink from "../components/homeLink";
 import VerticalComponent from "../components/vertical";
-import Footer from "../components/footer";
-import { menuItems } from "../data/menuItems";
 import { componentsData } from "../data/componentsData";
 
 interface ListType {
@@ -80,7 +77,6 @@ const List: React.FC = () => {
           </DataWrapper>
         ))}
       </ListWrapper>
-      <Footer menuItems={menuItems} />
     </Wrapper>
   );
 };

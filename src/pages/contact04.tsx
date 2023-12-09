@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
-import Footer from "../components/footer";
 import { useLocation } from "react-router-dom";
-import { menuItems } from "../data/menuItems";
 
 const Contact04: React.FC = () => {
   // パンくずリスト
@@ -22,13 +20,12 @@ const Contact04: React.FC = () => {
         <text>{email}</text>
         <text>{message}</text>
       </WrapperStyled>
-      <Footer menuItems={menuItems} />
     </Wrapper>
   );
 };
 
 const WrapperStyled = styled.div`
-  overflowy: auto;
+  overflow-y: auto;
   max-height: 500px;
   margin: 20px 10vw;
 `;

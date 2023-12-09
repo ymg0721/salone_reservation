@@ -2,9 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import { useLocation, useNavigate } from "react-router-dom";
-import Footer from "../components/footer";
 import Img2 from "../img/flower.svg";
-import { menuItems } from "../data/menuItems";
 
 const Detail: React.FC = () => {
   // パンくずリスト
@@ -41,7 +39,6 @@ const Detail: React.FC = () => {
         </ImgWrapper>
         <PStyled>{text}</PStyled>
       </CardBackground>
-      <Footer menuItems={menuItems} />
     </Wrapper>
   );
 };

@@ -2,8 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 import axios from "axios";
 import HomeLink from "../components/homeLink";
-import Footer from "../components/footer";
-import { menuItems } from "../data/menuItems";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Contact02: React.FC = () => {
@@ -41,20 +39,19 @@ const Contact02: React.FC = () => {
       <WrapperStyled>
         <h1>お問い合わせ内容確認</h1>
         <h2>ご自身のメールアドレス</h2>
-        <p style={{ textDecoration: "underline" }}>{email}</p>
+        <PWrapper>{email}</PWrapper>
         <h2>お問い合わせ内容</h2>
-        <p style={{ textDecoration: "underline" }}>{message}</p>
+        <PWrapper>{message}</PWrapper>
         <br />
         <br />
         <button onClick={handleSubmit}>送信</button>
       </WrapperStyled>
-      <Footer menuItems={menuItems} />
     </Wrapper>
   );
 };
 
 const WrapperStyled = styled.div`
-  overflowy: auto;
+  overflow-y: auto;
   max-height: 500px;
   margin: 20px 10vw;
 `;
@@ -66,6 +63,10 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
+`;
+
+const PWrapper = styled.p`
+  text-decoration: underline;
 `;
 
 export default Contact02;

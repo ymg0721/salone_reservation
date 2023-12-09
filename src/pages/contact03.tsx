@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
-import Footer from "../components/footer";
-import { menuItems } from "../data/menuItems";
 
 const Contact03: React.FC = () => {
   // パンくずリスト
@@ -21,13 +19,12 @@ const Contact03: React.FC = () => {
         <h2>お問い合わせから約1日で返信させていただきます！！</h2>
         <a href="/home">ホームへ戻る</a>
       </WrapperStyled>
-      <Footer menuItems={menuItems} />
     </Wrapper>
   );
 };
 
 const WrapperStyled = styled.div`
-  overflowy: auto;
+  overflow-y: auto;
   max-height: 500px;
   margin: 20px 10vw;
 `;

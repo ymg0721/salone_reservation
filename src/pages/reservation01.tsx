@@ -3,9 +3,7 @@ import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { format } from "date-fns";
 import HomeLink from "../components/homeLink";
-import Footer from "../components/footer";
 import Calendar from "../components/calender";
-import { menuItems } from "../data/menuItems";
 
 interface ReservationType {
   id: number;
@@ -66,7 +64,6 @@ const Reservation01: React.FC = () => {
           <p>選択された日付のレッスンはありません。</p>
         )}
       </div>
-      <Footer menuItems={menuItems} />
     </Wrapper>
   );
 };
