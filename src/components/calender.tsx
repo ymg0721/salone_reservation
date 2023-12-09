@@ -78,7 +78,6 @@ const Calendar: React.FC<CalendarProps> = ({ onDayClick }) => {
 };
 
 const Container = styled.div`
-  font-family: "Arial", sans-serif;
   display: flex;
   flex-wrap: wrap;
 `;

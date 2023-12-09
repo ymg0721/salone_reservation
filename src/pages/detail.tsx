@@ -46,7 +46,6 @@ const Detail: React.FC = () => {
 const StyledInput = styled.input`
   background: none;
   border: none;
-  font-family: serif;
   color: #555;
   text-decoration: underline;
   cursor: pointer;

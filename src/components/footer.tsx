@@ -33,10 +33,7 @@ const ImgWrapperStyled = styled.a`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  font-family: sans-serif;
   color: black;
-  border: 1px solid black;
-  border: 2px solid #ffc9c9;
   padding: 10px;
   border-radius: 30px;
 `;
@@ -48,7 +45,7 @@ const FooterStyled = styled.footer`
   color: #fff;
   position: fixed;
   bottom: 0px;
-  background-color: #e9ecef;
+  backdrop-filter: blur(100px);
 `;
 
 const ImgStyled = styled.img`

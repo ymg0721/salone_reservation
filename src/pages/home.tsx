@@ -32,7 +32,7 @@ const Home: React.FC = () => {
         <TitleImage />
         <NewsWrapper01>
           <NewsWrapper02>
-            <H2Wrapper>お知らせ</H2Wrapper>
+            <H3Wrapper>お知らせ</H3Wrapper>
             {announcements.map((announcement, index) => (
               <HomeNotice key={index} {...announcement} />
             ))}
@@ -43,8 +43,11 @@ const Home: React.FC = () => {
   );
 };
 
-const H2Wrapper = styled.h3`
-  font-family: var(--s-font-3e9e7a4c);
+const H3Wrapper = styled.h3`
+  font-size: 4vw;
+  padding-top: 6vw;
+  padding-left: 6vw;
+  color: white;
 `;
 
 const Wrapper = styled.div`
@@ -60,14 +63,16 @@ const NewsWrapper01 = styled.div`
   width: -webkit-fill-available;
   position: absolute;
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 const NewsWrapper02 = styled.div`
-  margin: 70vw 5vw 5vw 5vw;
+  margin: ${window.innerWidth > window.innerHeight
+    ? "70vw 5vw 5vw 5vw"
+    : "140vw 8vw 5vw 8vw"};
   height: 1000px;
   width: -webkit-fill-available;
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(70px);
   opacity: 0.75;
   border-radius: 24px;
 `;

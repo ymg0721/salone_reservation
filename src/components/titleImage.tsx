@@ -28,7 +28,7 @@ const TitleImage: React.FC = () => {
       // フェードインアニメーションをトリガーする
       fadeIn.opacity.set(0);
       fadeIn.opacity.set(1);
-    }, 3000 * 2); // 2秒ごとにトリガーする（5倍遅く）
+    }, 3000 * 5); // 2秒ごとにトリガーする（5倍遅く）
 
     return () => clearInterval(interval);
   }, [fadeIn, currentImageIndex]);

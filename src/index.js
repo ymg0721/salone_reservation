@@ -9,7 +9,7 @@ import "./index.css";
 import LogoTitle from "./img/logo.png";
 
 const AWrapper02 = styled.a`
-  background-color: #1cb4d3;
+  backdrop-filter: blur(100px);
   bottom: 98px;
   border-radius: 50px;
   color: #fff;
@@ -23,16 +23,20 @@ const HeaderWrapper = styled.header`
   position: absolute;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   z-index: 1;
+  backdrop-filter: blur(10px);
 `;
 
 const H1Wrapper = styled.h1`
   color: white;
+  margin: 0;
+  padding: 0 5vw 0;
+  font-size: 5vw;
 `;
 
 const ImgWrapper = styled.img`
-  width: 30%;
+  width: 50vw;
 `;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -41,7 +45,7 @@ root.render(
     <div>
       {window.location.pathname !== "/" && (
         <HeaderWrapper>
-          <H1Wrapper>Venere Emi Flower Salone</H1Wrapper>
+          <H1Wrapper>Venere Emi</H1Wrapper>
           <ImgWrapper src={LogoTitle} alt="" />
         </HeaderWrapper>
       )}

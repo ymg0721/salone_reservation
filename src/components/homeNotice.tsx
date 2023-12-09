@@ -23,12 +23,16 @@ const HomeNoticeWrapper = styled.div`
 `;
 
 const PStyled = styled.p`
-  font-family: sans-serif;
+  padding: 0vw 4vw 4vw 6vw;
+  font-size: 4vw;
+  color: white;
 `;
 
 const AStyled = styled.a`
-  font-family: sans-serif;
-  color: #000000;
+  padding: 4vw 8vw 4vw 4vw;
+  font-size: 4vw;
+  color: white;
+}
 `;
 
 export default HomeNotice;
