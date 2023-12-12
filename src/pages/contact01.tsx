@@ -67,11 +67,19 @@ const Contact01: React.FC = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              style={{
+                height: "2vw",
+                width: "35vw",
+              }}
             />
             <h2>お問い合わせ内容</h2>
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              style={{
+                height: "4vw",
+                width: "35vw",
+              }}
             />
             <br />
             <br />
@@ -98,9 +106,9 @@ const WrapperStyled = styled.div`
 `;
 
 const WrapperStyled02 = styled.div`
-  margin: 10vw auto;
+  margin: 5vw auto;
   width: 100%;
-  text-align: center;
+  text-align: left;
 `;
 
 export default Contact01;
