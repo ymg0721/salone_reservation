@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import HomeLink from "../components/homeLink";
 import Calendar from "../components/calender";
 import ReservationImage from "../components/reservationImage";
+import DetailWrapper from "../components/detailWrapper";
 
 interface ReservationType {
   id: number;
@@ -40,56 +41,52 @@ const Reservation01: React.FC = () => {
   return (
     <Wrapper>
       <ReservationImage />
-      <div
-        style={{
-          position: "absolute",
-          backdropFilter: "blur(70px)",
-          width: "-webkit-fill-available",
-          marginTop: "30vw",
-          marginLeft: "10vw",
-          marginRight: "10vw",
-        }}
-      >
-        <HomeLink items={multipleBreadcrumbs} />
-        <Calendar onDayClick={handleDayClick} />
-        <ReservationWrapper>
-          {selectedDate && data.some((item) => item.date === selectedDate) ? (
-            <>
-              <h3>{String(selectedDate)}選択可能レッスン一覧</h3>
-              <a
-                href="/reservation02"
-                style={{ color: "black", textDecoration: "none" }}
-              >
-                <TicketStyled>
-                  <img
-                    src={data.find((item) => item.date === selectedDate)?.src}
-                    alt=""
-                    style={{ borderRadius: "15px", margin: "3vw" }}
-                  />
-                  <H4Wrapper>
-                    <time
-                      dateTime={selectedDate}
-                      style={{
-                        textDecoration: "underline",
-                      }}
-                    >
-                      {selectedDate}
-                    </time>
-                    <h2>
-                      {data.find((item) => item.date === selectedDate)?.title}
-                    </h2>
-                    <p>
-                      {data.find((item) => item.date === selectedDate)?.detail}
-                    </p>
-                  </H4Wrapper>
-                </TicketStyled>
-              </a>
-            </>
-          ) : (
-            <p>選択された日付のレッスンはありません。</p>
-          )}
-        </ReservationWrapper>
-      </div>
+      <DetailWrapper>
+        <TestWrpapper>
+          <HomeLink items={multipleBreadcrumbs} />
+          <Calendar onDayClick={handleDayClick} />
+          <ReservationWrapper>
+            {selectedDate && data.some((item) => item.date === selectedDate) ? (
+              <>
+                <h3>{String(selectedDate)}選択可能レッスン一覧</h3>
+                <a
+                  href="/reservation02"
+                  style={{ color: "black", textDecoration: "none" }}
+                >
+                  <TicketStyled>
+                    <img
+                      src={data.find((item) => item.date === selectedDate)?.src}
+                      alt=""
+                      style={{ borderRadius: "15px", margin: "3vw" }}
+                    />
+                    <H4Wrapper>
+                      <time
+                        dateTime={selectedDate}
+                        style={{
+                          textDecoration: "underline",
+                        }}
+                      >
+                        {selectedDate}
+                      </time>
+                      <h2>
+                        {data.find((item) => item.date === selectedDate)?.title}
+                      </h2>
+                      <p>
+                        {
+                          data.find((item) => item.date === selectedDate)
+                            ?.detail
+                        }
+                      </p>
+                    </H4Wrapper>
+                  </TicketStyled>
+                </a>
+              </>
+            ) : (
+              <p>選択された日付のレッスンはありません。</p>
+            )}
+          </ReservationWrapper>
+        </TestWrpapper>
+      </DetailWrapper>
     </Wrapper>
   );
 };
@@ -123,6 +120,15 @@ const ReservationWrapper = styled.div`
   overflow-y: auto;
   margin: 3vw 8vw;
   padding: 0vw 0 10vw;
+`;
+
+const TestWrpapper = styled.div`
+  margin: 90vw 8vw 5vw 8vw;
+  height: 1000px;
+  width: -webkit-fill-available;
+  -webkit-backdrop-filter: blur(70px);
+  backdrop-filter: blur(70px);
+  border-radius: 24px;
 `;
 
 export default Reservation01;

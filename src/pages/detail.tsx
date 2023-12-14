@@ -25,28 +25,38 @@ const Detail: React.FC = () => {
   return (
     <Wrapper>
       <DetailImage />
-      <DetailWrapper>
-        <HomeLink items={multipleBreadcrumbs} />
-        {/* ↓コンポーネント化予定 */}
-        <ImgStyled src={src} alt="" />
-        <H3Wrapper>{date}</H3Wrapper>
-        <H2Wrapper>{title}</H2Wrapper>
-        <CardBackground>
-          <ImgWrapper>
-            <ImgStyled2 src={Img2} alt="" />
-            <p>この作品への想い。</p>
-            <StyledInput
-              type="button"
-              value="レッスンを申し込む"
-              onClick={handleEvent}
-            />
-          </ImgWrapper>
-          <PStyled>{text}</PStyled>
-        </CardBackground>
-      </DetailWrapper>
+      <DetailWrapperStyled>
+        <TestWrpapper>
+          <HomeLink items={multipleBreadcrumbs} />
+          {/* ↓コンポーネント化予定 */}
+          <ImgStyled src={src} alt="" />
+          <H3Wrapper>{date}</H3Wrapper>
+          <H2Wrapper>{title}</H2Wrapper>
+          <CardBackground>
+            <ImgWrapper>
+              <ImgStyled2 src={Img2} alt="" />
+              <p>この作品への想い。</p>
+              <StyledInput
+                type="button"
+                value="レッスンを申し込む"
+                onClick={handleEvent}
+              />
+            </ImgWrapper>
+            <PStyled>{text}</PStyled>
+          </CardBackground>
+        </TestWrpapper>
+      </DetailWrapperStyled>
     </Wrapper>
   );
 };
+
+const DetailWrapperStyled = styled.div`
+  height: 100%;
+  width: -webkit-fill-available;
+  position: absolute;
+  overflow: hidden;
+  overflow-y: auto;
+`;
 
 const H2Wrapper = styled.h2`
   margin: 1vw 10vw;
@@ -106,9 +116,17 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
-  padding-top: 20vw;
   width: -webkit-fill-available;
   position: absolute;
 `;
 
+const TestWrpapper = styled.div`
+  margin: 140vw 8vw 5vw 8vw;
+  height: 1000px;
+  width: -webkit-fill-available;
+  -webkit-backdrop-filter: blur(70px);
+  backdrop-filter: blur(70px);
+  opacity: 0.75;
+  border-radius: 24px;
+`;
 export default Detail;

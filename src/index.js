@@ -5,8 +5,8 @@ import { menuItems } from "./data/menuItems.ts";
 import RouterApp from "./router/index.tsx";
 import reportWebVitals from "./reportWebVitals";
 import styled from "@emotion/styled";
-import "./index.css";
 import LogoTitle from "./img/logo.png";
+import "../src/index.css";
 
 const AWrapper02 = styled.a`
   backdrop-filter: blur(100px);
@@ -39,24 +39,38 @@ const ImgWrapper = styled.img`
   width: 50vw;
 `;
 
+const ConditionalDiv = styled.div`
+  @media (min-aspect-ratio: 1.1) {
+    display: none;
+  }
+`;
+
+const ConditionalDiv2 = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 20vw 0;
+  @media (max-aspect-ratio: 1) {
+    display: none;
+  }
+`;
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <div>
-      {window.location.pathname !== "/" && (
-        <HeaderWrapper>
-          <H1Wrapper>Venere Emi</H1Wrapper>
-          <ImgWrapper src={LogoTitle} alt="" />
-        </HeaderWrapper>
-      )}
+    <ConditionalDiv shouldRender={window.innerHeight < window.innerWidth}>
+      <HeaderWrapper>
+        <H1Wrapper>Venere Emi</H1Wrapper>
+        <ImgWrapper src={LogoTitle} alt="" />
+      </HeaderWrapper>
       <RouterApp />
-      {window.location.pathname !== "/" && (
-        <AWrapper02 href="/home" id="a2">
-          ホームへ
-        </AWrapper02>
-      )}
-      {window.location.pathname !== "/" && <FooterMenu menuItems={menuItems} />}
-    </div>
+      <AWrapper02 href="/home" id="a2">
+        ホームへ
+      </AWrapper02>
+      <FooterMenu menuItems={menuItems} />
+    </ConditionalDiv>
+    <ConditionalDiv2 shouldRender={window.innerHeight > window.innerWidth}>
+      <h1>画面を縦にしてください。</h1>
+    </ConditionalDiv2>
   </React.StrictMode>
 );
 

@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
+import ReservationImage from "../components/reservationImage";
+import DetailWrapper from "../components/detailWrapper";
 
 const Reservation: React.FC = () => {
   const [name, setName] = useState("");
@@ -10,8 +12,7 @@ const Reservation: React.FC = () => {
   const [phone, setPhone] = useState("");
   // const location = useLocation();
   const navigate = useNavigate();
-  // const { state } = location;
-  // const { src, title, date, text } = state;
+
   // パンくずリスト
   const multipleBreadcrumbs = [
     { label: "ホーム", to: "/home" },
@@ -49,55 +50,66 @@ const Reservation: React.FC = () => {
 
   return (
     <Wrapper>
-      <HomeLink items={multipleBreadcrumbs} />
-      <WrapperStyled>
-        <h1>
-          お客様のご連絡先を
-          <br />
-          入力してください！
-        </h1>
-        <h2>ご自身のお名前</h2>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <h2>ご自身のメールアドレス</h2>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <h2>ご自身のお電話番号</h2>
-        <input
-          type="phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <br /> <br />
-        <button type="button" onClick={handleSubmit}>
-          確定画面へ➡
-        </button>
-      </WrapperStyled>
+      <ReservationImage />
+      <DetailWrapper>
+        <TestWrpapper>
+          <HomeLink items={multipleBreadcrumbs} />
+          <WrapperStyled>
+            <h1>
+              お客様のご連絡先を
+              <br />
+              入力してください！
+            </h1>
+            <h2>ご自身のお名前</h2>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <h2>ご自身のメールアドレス</h2>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <h2>ご自身のお電話番号</h2>
+            <input
+              type="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <br /> <br />
+            <button type="button" onClick={handleSubmit}>
+              確定画面へ➡
+            </button>
+          </WrapperStyled>
+        </TestWrpapper>
+      </DetailWrapper>
     </Wrapper>
   );
 };
 
 const WrapperStyled = styled.div`
   overflow-y: auto;
-  max-height: 500px;
   margin: 20px 10vw;
 `;
 
 const Wrapper = styled.div`
-  padding-top: 20vw;
   background: rgb(247, 246, 245);
   height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
-  padding-top: 20vw;
+`;
+
+const TestWrpapper = styled.div`
+  margin: 140vw 8vw 5vw 8vw;
+  height: 1000px;
+  width: -webkit-fill-available;
+  -webkit-backdrop-filter: blur(70px);
+  backdrop-filter: blur(70px);
+  border-radius: 24px;
 `;
 
 export default Reservation;

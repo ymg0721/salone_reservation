@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
+import ContactImage from "../components/contactImage";
+import DetailWrapper from "../components/detailWrapper";
 
 const Contact03: React.FC = () => {
   // パンくずリスト
@@ -13,12 +15,16 @@ const Contact03: React.FC = () => {
 
   return (
     <Wrapper>
-      <HomeLink items={multipleBreadcrumbs} />
-      <WrapperStyled>
-        <h1>お問い合わせありがとうございます！！</h1>
-        <h2>お問い合わせから約1日で返信させていただきます！！</h2>
-        <a href="/home">ホームへ戻る</a>
-      </WrapperStyled>
+      <ContactImage />
+      <DetailWrapper>
+        <TestWrpapper>
+          <WrapperStyled>
+            <h1>お問い合わせありがとうございます！！</h1>
+            <h2>お問い合わせから約1日で返信させていただきます！！</h2>
+            <a href="/home">ホームへ戻る</a>
+          </WrapperStyled>
+        </TestWrpapper>
+      </DetailWrapper>
     </Wrapper>
   );
 };
@@ -36,7 +42,15 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
-  padding-top: 20vw;
+`;
+
+const TestWrpapper = styled.div`
+  margin: 50vw 8vw 5vw 8vw;
+  height: 1000px;
+  width: -webkit-fill-available;
+  -webkit-backdrop-filter: blur(70px);
+  backdrop-filter: blur(70px);
+  border-radius: 24px;
 `;
 
 export default Contact03;

@@ -63,18 +63,24 @@ const List: React.FC = () => {
     <Wrapper>
       <ListImage />
       <DetailWrapper>
-        <HomeLink items={multipleBreadcrumbs} />
-        <ListWrapper>
-          {data.map((item) => (
-            <DataWrapper key={item.id}>
-              <ImgWrapper src={item.src} alt="" />
-              <h2>{item.title}</h2>
-              <p>{item.date}</p>
-              <TextWrapper>{item.text}</TextWrapper>
-              <button onClick={() => handleEvent(item)}>詳細画面へ</button>
-            </DataWrapper>
-          ))}
-        </ListWrapper>
+        <TestWrpapper>
+          <HomeLink items={multipleBreadcrumbs} />
+          <ListWrapper>
+            {data.map((item, index) => (
+              <React.Fragment key={item.id}>
+                <DataWrapper>
+                  <ImgWrapper src={item.src} alt="" />
+                  <h2>{item.title}</h2>
+                  <p>{item.date}</p>
+                  <TextWrapper>{item.text}</TextWrapper>
+                  <button onClick={() => handleEvent(item)}>詳細画面へ</button>
+                </DataWrapper>
+                {/* データが偶数かつ最後のアイテムでない場合、改行を追加 */}
+                {index % 2 === 1 && index !== data.length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </ListWrapper>
+        </TestWrpapper>
       </DetailWrapper>
     </Wrapper>
   );
@@ -95,12 +101,14 @@ const DataWrapper = styled.div`
   margin-top: 10vw;
   justify-content: space-around;
   flex-direction: column;
+  width: 48%;
 `;
 
 const ListWrapper = styled.div`
   overflow-y: auto;
   max-height: 500px;
   display: flex;
+  flex-wrap: wrap; /* 改行を有効にする */
   width: 100%;
   justify-content: space-evenly;
 `;
@@ -113,4 +121,13 @@ const TextWrapper = styled.p`
   display: none;
 `;
 
+const TestWrpapper = styled.div`
+  margin: 140vw 8vw 5vw 8vw;
+  height: 1000px;
+  width: -webkit-fill-available;
+  -webkit-backdrop-filter: blur(70px);
+  backdrop-filter: blur(70px);
+  opacity: 0.75;
+  border-radius: 24px;
+`;
 export default List;

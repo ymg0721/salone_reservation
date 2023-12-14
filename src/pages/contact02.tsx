@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 import axios from "axios";
 import HomeLink from "../components/homeLink";
 import { useLocation, useNavigate } from "react-router-dom";
+import ContactImage from "../components/contactImage";
+import DetailWrapper from "../components/detailWrapper";
 
 const Contact02: React.FC = () => {
   const location = useLocation();
@@ -35,17 +37,22 @@ const Contact02: React.FC = () => {
 
   return (
     <Wrapper>
-      <HomeLink items={multipleBreadcrumbs} />
-      <WrapperStyled>
-        <h1>お問い合わせ内容確認</h1>
-        <h2>ご自身のメールアドレス</h2>
-        <PWrapper>{email}</PWrapper>
-        <h2>お問い合わせ内容</h2>
-        <PWrapper>{message}</PWrapper>
-        <br />
-        <br />
-        <button onClick={handleSubmit}>送信</button>
-      </WrapperStyled>
+      <ContactImage />
+      <DetailWrapper>
+        <TestWrpapper>
+          <HomeLink items={multipleBreadcrumbs} />
+          <WrapperStyled>
+            <h1>お問い合わせ内容確認</h1>
+            <h2>ご自身のメールアドレス</h2>
+            <PWrapper>{email}</PWrapper>
+            <h2>お問い合わせ内容</h2>
+            <PWrapper>{message}</PWrapper>
+            <br />
+            <br />
+            <button onClick={handleSubmit}>送信</button>
+          </WrapperStyled>
+        </TestWrpapper>
+      </DetailWrapper>
     </Wrapper>
   );
 };
@@ -63,11 +70,19 @@ const Wrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   min-height: 100vh;
-  padding-top: 20vw;
 `;
 
 const PWrapper = styled.p`
   text-decoration: underline;
+`;
+
+const TestWrpapper = styled.div`
+  margin: 140vw 8vw 5vw 8vw;
+  height: 1000px;
+  width: -webkit-fill-available;
+  -webkit-backdrop-filter: blur(70px);
+  backdrop-filter: blur(70px);
+  border-radius: 24px;
 `;
 
 export default Contact02;

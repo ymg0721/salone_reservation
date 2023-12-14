@@ -49,7 +49,7 @@ const ContactImage: React.FC = () => {
 };
 
 const Wrapper = styled.div`
-  height: 100%;
+  height: ${window.innerHeight}px;
   position: relative;
 `;
 

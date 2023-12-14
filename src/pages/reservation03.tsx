@@ -2,6 +2,8 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
+import ReservationImage from "../components/reservationImage";
+import DetailWrapper from "../components/detailWrapper";
 
 const Reservation: React.FC = () => {
   // パンくずリスト
@@ -23,22 +25,27 @@ const Reservation: React.FC = () => {
 
   return (
     <Wrapper>
-      <HomeLink items={multipleBreadcrumbs} />
-      <WrapperStyled>
-        <h1>ご予約確定画面へ</h1>
-        <h2>ご自身のお名前：</h2>
-        <PWrapper>{name}</PWrapper>
-        <h2>ご自身のメールアドレス:</h2>
-        <PWrapper>{email}</PWrapper>
-        <h2>ご自身のお電話番号：</h2>
-        <PWrapper>{phone}</PWrapper>
-        <h2>レッスン日程：</h2>
-        <PWrapper>aaaaaaaa</PWrapper>
-        <br /> <br />
-        <button type="button" onClick={handleEvent}>
-          この内容で確定する
-        </button>
-      </WrapperStyled>
+      <ReservationImage />
+      <DetailWrapper>
+        <TestWrpapper>
+          <HomeLink items={multipleBreadcrumbs} />
+          <WrapperStyled>
+            <h1>ご予約確定画面へ</h1>
+            <h2>ご自身のお名前：</h2>
+            <PWrapper>{name}</PWrapper>
+            <h2>ご自身のメールアドレス:</h2>
+            <PWrapper>{email}</PWrapper>
+            <h2>ご自身のお電話番号：</h2>
+            <PWrapper>{phone}</PWrapper>
+            <h2>レッスン日程：</h2>
+            <PWrapper>aaaaaaaa</PWrapper>
+            <br /> <br />
+            <button type="button" onClick={handleEvent}>
+              この内容で確定する
+            </button>
+          </WrapperStyled>
+        </TestWrpapper>
+      </DetailWrapper>
     </Wrapper>
   );
 };
@@ -61,6 +68,15 @@ const Wrapper = styled.div`
 
 const PWrapper = styled.p`
   textdecoration: underline;
+`;
+
+const TestWrpapper = styled.div`
+  margin: 140vw 8vw 5vw 8vw;
+  height: 1000px;
+  width: -webkit-fill-available;
+  -webkit-backdrop-filter: blur(70px);
+  backdrop-filter: blur(70px);
+  border-radius: 24px;
 `;
 
 export default Reservation;
