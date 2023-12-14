@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import { useLocation } from "react-router-dom";
+import { Wrapper } from "../components/detailWrapper";
 
 const Contact04: React.FC = () => {
   // パンくずリスト
@@ -28,15 +29,6 @@ const WrapperStyled = styled.div`
   overflow-y: auto;
   max-height: 500px;
   margin: 20px 10vw;
-`;
-
-const Wrapper = styled.div`
-  background: rgb(247, 246, 245);
-  height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
-  min-height: 100vh;
 `;
 
 export default Contact04;

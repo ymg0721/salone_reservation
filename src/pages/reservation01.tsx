@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import HomeLink from "../components/homeLink";
 import Calendar from "../components/calender";
 import ReservationImage from "../components/reservationImage";
-import DetailWrapper from "../components/detailWrapper";
+import { Wrapper, DetailWrapper } from "../components/detailWrapper";
 
 interface ReservationType {
   id: number;
@@ -105,15 +105,6 @@ const TicketStyled = styled.div`
   height: 100%;
   background-color: #f0d0f0;
   border-radius: 30px;
-`;
-
-const Wrapper = styled.div`
-  background: rgb(247, 246, 245);
-  height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
-  min-height: 100vh;
 `;
 
 const ReservationWrapper = styled.div`

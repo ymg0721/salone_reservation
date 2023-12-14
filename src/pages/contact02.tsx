@@ -4,7 +4,11 @@ import axios from "axios";
 import HomeLink from "../components/homeLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import ContactImage from "../components/contactImage";
-import DetailWrapper from "../components/detailWrapper";
+import {
+  Wrapper,
+  DetailWrapper,
+  ScrollChildrenWrpapper,
+} from "../components/detailWrapper";
 
 const Contact02: React.FC = () => {
   const location = useLocation();
@@ -39,7 +43,7 @@ const Contact02: React.FC = () => {
     <Wrapper>
       <ContactImage />
       <DetailWrapper>
-        <TestWrpapper>
+        <ScrollChildrenWrpapper>
           <HomeLink items={multipleBreadcrumbs} />
           <WrapperStyled>
             <h1>お問い合わせ内容確認</h1>
@@ -51,7 +55,7 @@ const Contact02: React.FC = () => {
             <br />
             <button onClick={handleSubmit}>送信</button>
           </WrapperStyled>
-        </TestWrpapper>
+        </ScrollChildrenWrpapper>
       </DetailWrapper>
     </Wrapper>
   );
@@ -63,26 +67,8 @@ const WrapperStyled = styled.div`
   margin: 20px 10vw;
 `;
 
-const Wrapper = styled.div`
-  background: rgb(247, 246, 245);
-  height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
-  min-height: 100vh;
-`;
-
 const PWrapper = styled.p`
   text-decoration: underline;
-`;
-
-const TestWrpapper = styled.div`
-  margin: 140vw 8vw 5vw 8vw;
-  height: 1000px;
-  width: -webkit-fill-available;
-  -webkit-backdrop-filter: blur(70px);
-  backdrop-filter: blur(70px);
-  border-radius: 24px;
 `;
 
 export default Contact02;

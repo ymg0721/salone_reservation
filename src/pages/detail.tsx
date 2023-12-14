@@ -4,7 +4,6 @@ import HomeLink from "../components/homeLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import Img2 from "../img/flower.svg";
 import DetailImage from "../components/detailImage";
-import DetailWrapper from "../components/detailWrapper";
 
 const Detail: React.FC = () => {
   // パンくずリスト

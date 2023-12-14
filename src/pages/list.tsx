@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
-import VerticalComponent from "../components/vertical";
-import { componentsData } from "../data/componentsData";
 import ListImage from "../components/listImage";
-import DetailWrapper from "../components/detailWrapper";
+import { DetailWrapper } from "../components/detailWrapper";
 
 interface ListType {
   id: number;
@@ -32,20 +30,6 @@ const List: React.FC = () => {
         console.log(json, "作品のDBに接続できました");
       });
   }, []);
-
-  // 二個ずつで改行する処理
-  const renderComponents = () => {
-    const rows: JSX.Element[][] = [];
-    for (let i = 0; i < componentsData.length; i += 2) {
-      const rowComponents = componentsData.slice(i, i + 2);
-      const row = rowComponents.map((data, index) => (
-        <VerticalComponent key={index} {...data} />
-      ));
-      rows.push(row);
-    }
-
-    return rows;
-  };
 
   const handleEvent = (item: ListType) => {
     navigate("/list/detail", {
@@ -106,7 +90,6 @@ const DataWrapper = styled.div`
 
 const ListWrapper = styled.div`
   overflow-y: auto;
-  max-height: 500px;
   display: flex;
   flex-wrap: wrap; /* 改行を有効にする */
   width: 100%;
@@ -127,7 +110,6 @@ const TestWrpapper = styled.div`
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);
-  opacity: 0.75;
   border-radius: 24px;
 `;
 export default List;

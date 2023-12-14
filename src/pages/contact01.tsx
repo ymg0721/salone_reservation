@@ -4,7 +4,7 @@ import axios from "axios";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import ContactImage from "../components/contactImage";
-import DetailWrapper from "../components/detailWrapper";
+import { Wrapper, DetailWrapper } from "../components/detailWrapper";
 
 const Contact01: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -77,24 +77,6 @@ const Contact01: React.FC = () => {
   );
 };
 
-const Wrapper = styled.div`
-  background: rgb(247, 246, 245);
-  height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
-  min-height: 100vh;
-`;
-
-const BodyWrapper = styled.div`
-  position: absolute;
-  backdrop-filter: blur(70px);
-  width: -webkit-fill-available;
-  margin-top: 30vw;
-  margin-left: 10vw;
-  margin-right: 10vw;
-`;
-
 const WrapperStyled = styled.div`
   margin: 2vw 10vw;
 `;
@@ -116,8 +98,8 @@ const TextareaWrapper = styled.textarea`
 `;
 
 const TestWrpapper = styled.div`
-  margin: 140vw 8vw 5vw 8vw;
-  height: 1000px;
+  margin: 40vw 8vw 0 8vw;
+  padding-bottom: 4vw;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);

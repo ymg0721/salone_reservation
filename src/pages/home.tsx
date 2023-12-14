@@ -21,11 +21,6 @@ const Container = styled.div`
 `;
 
 const Home: React.FC = () => {
-  // const titleImageId = document.getElementById("a");
-  // const footerId = document.getElementById("footer");
-  // const aY = titleImageId?.offsetHeight || 0;
-  // const footerY = footerId?.offsetHeight || 0;
-
   return (
     <Container>
       <Wrapper>

@@ -3,7 +3,11 @@ import { useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import ReservationImage from "../components/reservationImage";
-import DetailWrapper from "../components/detailWrapper";
+import {
+  Wrapper,
+  DetailWrapper,
+  ScrollChildrenWrpapper,
+} from "../components/detailWrapper";
 
 const Reservation: React.FC = () => {
   // パンくずリスト
@@ -23,7 +27,7 @@ const Reservation: React.FC = () => {
     <Wrapper>
       <ReservationImage />
       <DetailWrapper>
-        <TestWrpapper>
+        <ScrollChildrenWrpapper>
           <HomeLink items={multipleBreadcrumbs} />
           <WrapperStyled>
             <h1>
@@ -35,7 +39,7 @@ const Reservation: React.FC = () => {
             </h1>
             {/* TODO：アニメーションコンポーネント追加 */}
           </WrapperStyled>
-        </TestWrpapper>
+        </ScrollChildrenWrpapper>
       </DetailWrapper>
     </Wrapper>
   );
@@ -44,25 +48,6 @@ const Reservation: React.FC = () => {
 const WrapperStyled = styled.div`
   overflow-y: auto;
   margin: 20px 10vw 0;
-`;
-
-const Wrapper = styled.div`
-  background: rgb(247, 246, 245);
-  height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
-  min-height: 100vh;
-  padding-top: 20vw;
-`;
-
-const TestWrpapper = styled.div`
-  margin: 140vw 8vw 5vw 8vw;
-  height: 1000px;
-  width: -webkit-fill-available;
-  -webkit-backdrop-filter: blur(70px);
-  backdrop-filter: blur(70px);
-  border-radius: 24px;
 `;
 
 export default Reservation;

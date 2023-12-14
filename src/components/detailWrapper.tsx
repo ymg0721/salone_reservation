@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const DetailWrapper = styled.div`
+export const DetailWrapper = styled.div`
   height: 100%;
   width: -webkit-fill-available;
   position: absolute;
@@ -8,4 +8,20 @@ const DetailWrapper = styled.div`
   overflow-y: auto;
 `;
 
-export default DetailWrapper;
+export const ScrollChildrenWrpapper = styled.div`
+  margin: 140vw 8vw 5vw 8vw;
+  height: 1000px;
+  width: -webkit-fill-available;
+  -webkit-backdrop-filter: blur(70px);
+  backdrop-filter: blur(70px);
+  border-radius: 24px;
+`;
+
+export const Wrapper = styled.div`
+  background: rgb(247, 246, 245);
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
+`;
