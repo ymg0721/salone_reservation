@@ -112,7 +112,6 @@ const TextWrapper = styled.p`
 
 const TestWrpapper = styled.div`
   margin: 140vw 8vw 40vw 8vw;
-  height: 100%;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);
