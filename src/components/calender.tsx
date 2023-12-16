@@ -12,6 +12,8 @@ import {
   isSameDay,
   getDay,
 } from "date-fns";
+import LeftArrow from "../img/arrow-left.svg";
+import RightArrow from "../img/arrow-right.svg";
 
 interface CalendarProps {
   onDayClick: (date: Date) => void;
@@ -56,9 +58,13 @@ const Calendar: React.FC<CalendarProps> = ({ onDayClick }) => {
   return (
     <Container>
       <Header>
-        <button onClick={handlePrevMonth}>&lt;</button>
+        <a onClick={handlePrevMonth}>
+          <img src={LeftArrow} alt="" />
+        </a>
         <H2Wrapper>{format(currentMonth, "MMMM yyyy")}</H2Wrapper>
-        <button onClick={handleNextMonth}>&gt;</button>
+        <a onClick={handleNextMonth} style={{ display: "flex" }}>
+          <img src={RightArrow} alt="" />
+        </a>
       </Header>
       {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, index) => (
         <WeekDay key={index}>{day}</WeekDay>
@@ -100,7 +106,7 @@ const Day = styled.div<{ isCurrentMonth: boolean; isSelected: boolean }>`
 `;
 
 const Header = styled.div`
-  align-items: baseline;
+  align-items: center;
   width: 100%;
   text-align: center;
   margin-bottom: 10px;
@@ -114,11 +120,12 @@ const WeekDay = styled.div`
   text-align: center;
   padding: 8px;
   font-weight: bold;
-  color: #333;
+  color: #54626f;
 `;
 
 const H2Wrapper = styled.h2`
   margin: 0;
+  color: #54626f;
 `;
 
 export default Calendar;

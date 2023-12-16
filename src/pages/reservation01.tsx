@@ -82,7 +82,9 @@ const Reservation01: React.FC = () => {
                 </a>
               </>
             ) : (
-              <p>選択された日付のレッスンはありません。</p>
+              <p style={{ fontWeight: "700" }}>
+                選択された日付のレッスンはありません。
+              </p>
             )}
           </ReservationWrapper>
         </TestWrpapper>
@@ -103,7 +105,7 @@ const TicketStyled = styled.div`
   display: flex;
   // padding: 3vw;
   height: 100%;
-  background-color: #f0d0f0;
+  background-color: rgb(253, 253, 253);
   border-radius: 30px;
 `;
 

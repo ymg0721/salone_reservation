@@ -16,6 +16,7 @@ const AWrapper02 = styled.a`
   padding: 20px;
   position: fixed;
   right: 0;
+  font-weight: 600;
 `;
 
 const HeaderWrapper = styled.header`
