@@ -57,7 +57,6 @@ const Contact01: React.FC = () => {
             <WrapperStyled02>
               <h2 style={{ fontSize: "4vw" }}>ご自身のメールアドレス</h2>
               <InputWrapper
-                type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -68,7 +67,7 @@ const Contact01: React.FC = () => {
               />
               <br />
               <br />
-              <button onClick={handleSubmit}>送信</button>
+              <ButtonStyled onClick={handleSubmit}>送信</ButtonStyled>
             </WrapperStyled02>
           </WrapperStyled>
         </TestWrpapper>
@@ -87,14 +86,18 @@ const WrapperStyled02 = styled.div`
   text-align: left;
 `;
 
-const InputWrapper = styled.input`
-  height: 2vw;
-  width: 35vw;
+const InputWrapper = styled.textarea`
+  border-color: snow;
+  margin: 0 4vw;
+  height: 4vw;
+  width: 50vw;
 `;
 
 const TextareaWrapper = styled.textarea`
-  height: 4vw;
-  width: 35vw;
+  border-color: snow;
+  margin: 0 4vw;
+  height: 8vw;
+  width: 50vw;
 `;
 
 const TestWrpapper = styled.div`
@@ -104,6 +107,18 @@ const TestWrpapper = styled.div`
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);
   border-radius: 24px;
+`;
+
+const ButtonStyled = styled.button`
+  transition: 0.2s ease-in-out;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  width: 250px;
+  height: 40px;
+  color: #fff;
+  background-color: #3b2f2f;
+  border-radius: 20px;
 `;
 
 export default Contact01;
