@@ -87,6 +87,7 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 5vw 5vw 2vw;
+  border-bottom: 1px solid #d3d3d3;
 `;
 
 const Day = styled.div<{ isCurrentMonth: boolean; isSelected: boolean }>`
@@ -94,6 +95,7 @@ const Day = styled.div<{ isCurrentMonth: boolean; isSelected: boolean }>`
   box-sizing: border-box;
   text-align: center;
   padding: 8px;
+  font-weight: 600;
   cursor: pointer;
   background-color: ${(props) =>
     props.isSelected
