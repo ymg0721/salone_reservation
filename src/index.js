@@ -60,7 +60,9 @@ root.render(
   <React.StrictMode>
     <ConditionalDiv shouldRender={window.innerHeight < window.innerWidth}>
       <HeaderWrapper>
-        <H1Wrapper>Venere Emi</H1Wrapper>
+        <a href="/home" style={{ textDecoration: "none" }}>
+          <H1Wrapper>Venere Emi</H1Wrapper>
+        </a>
         <ImgWrapper src={LogoTitle} alt="" />
       </HeaderWrapper>
       <RouterApp />
