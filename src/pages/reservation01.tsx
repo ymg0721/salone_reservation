@@ -114,8 +114,8 @@ const ReservationWrapper = styled.div`
 `;
 
 const TestWrpapper = styled.div`
-  margin: 90vw 8vw 5vw 8vw;
-  height: 1000px;
+  margin: 90vw 8vw 40vw 8vw;
+  height: 110%;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);

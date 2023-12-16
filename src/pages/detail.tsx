@@ -59,10 +59,13 @@ const DetailWrapperStyled = styled.div`
 
 const H2Wrapper = styled.h2`
   margin: 1vw 10vw;
+  color: #fdfdfd;
+  text-decoration: underline;
 `;
 
-const H3Wrapper = styled.h3`
-  margin: 1vw 10vw;
+const H3Wrapper = styled.p`
+  margin: 9vw 10vw 0vw;
+  color: #f7f7f7;
 `;
 
 const StyledInput = styled.input`
@@ -93,9 +96,12 @@ const PStyled = styled.p`
 
 const ImgStyled = styled.img`
   display: block;
-  margin: 5vw auto 3vw;
-  max-height: 20vw;
-  max-width: 20vw;
+  margin: 15vw auto 3vw;
+  max-height: 50vw;
+  max-width: 50vw;
+  border: 5vw solid rgb(253, 253, 253);
+  box-shadow: 0 5vw 0 #eeeeee;
+  border-radius: 1.5vw;
 `;
 
 const ImgStyled2 = styled.img`
@@ -105,9 +111,17 @@ const ImgStyled2 = styled.img`
 `;
 
 const CardBackground = styled.div`
-  background-color: gray;
-  height: auto;
+  border: 5px solid #e7e7e7;
+  background-color: #ffffff;
+  border-radius: 1vw;
+  overflow-x: auto; // 横スクロールを有効にする
+  white-space: nowrap; // 要素を横に並べるために必要
+  display: flex; // 要素を横に並べる
+
+  // 以下は必要に応じて調整
+  // gap: 20px; // 要素間の間隔を調整
   margin: 3vw 10vw 0;
+  flex-direction: column;
 `;
 
 const Wrapper = styled.div`
@@ -120,12 +134,11 @@ const Wrapper = styled.div`
 `;
 
 const TestWrpapper = styled.div`
-  margin: 140vw 8vw 5vw 8vw;
-  height: 1000px;
+  margin: 140vw 8vw 40vw 8vw;
+  height: 100%;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);
-  opacity: 0.75;
   border-radius: 24px;
 `;
 export default Detail;

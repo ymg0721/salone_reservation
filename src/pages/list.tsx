@@ -54,24 +54,8 @@ const List: React.FC = () => {
               <React.Fragment key={item.id}>
                 <DataWrapper>
                   <ImgWrapper src={item.src} alt="" />
-                  <h2
-                    style={{
-                      margin: "1vw 5.5vw 0",
-                      color: "#FDFDFD",
-                      fontSize: "4.5vw",
-                    }}
-                  >
-                    {item.title}
-                  </h2>
-                  <p
-                    style={{
-                      margin: "1vw 5vw",
-                      fontSize: "3.5vw",
-                      color: "#F7F7F7",
-                    }}
-                  >
-                    {item.date}
-                  </p>
+                  <H2Styled>{item.title}</H2Styled>
+                  <PStyled>{item.date}</PStyled>
                   <TextWrapper>{item.text}</TextWrapper>
                   <ButtonStyled onClick={() => handleEvent(item)}>
                     詳細画面へ
@@ -109,7 +93,7 @@ const DataWrapper = styled.div`
 const ListWrapper = styled.div`
   overflow-y: auto;
   display: flex;
-  flex-wrap: wrap; /* 改行を有効にする */
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-evenly;
 `;
@@ -127,8 +111,8 @@ const TextWrapper = styled.p`
 `;
 
 const TestWrpapper = styled.div`
-  margin: 140vw 8vw 5vw 8vw;
-  height: 1000px;
+  margin: 140vw 8vw 40vw 8vw;
+  height: 100%;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);
@@ -142,6 +126,18 @@ const ButtonStyled = styled.button`
   background: none;
   border-radius: 2vw;
   border-color: rgb(253, 253, 253);
+`;
+
+const H2Styled = styled.h2`
+  margin: 1vw 5.5vw 0;
+  color: #fdfdfd;
+  font-size: 4.5vw;
+`;
+
+const PStyled = styled.p`
+  margin: 1vw 5vw;
+  font-size: 3.5vw;
+  color: #f7f7f7;
 `;
 
 export default List;
