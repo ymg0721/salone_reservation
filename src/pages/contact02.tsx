@@ -46,14 +46,14 @@ const Contact02: React.FC = () => {
         <ScrollChildrenWrpapper>
           <HomeLink items={multipleBreadcrumbs} />
           <WrapperStyled>
-            <h1>お問い合わせ内容確認</h1>
-            <h2>ご自身のメールアドレス</h2>
+            <h1 style={{ fontSize: "4vw" }}>お問い合わせ内容確認</h1>
+            <h2 style={{ fontSize: "4vw" }}>ご自身のメールアドレス</h2>
             <PWrapper>{email}</PWrapper>
-            <h2>お問い合わせ内容</h2>
+            <h2 style={{ fontSize: "4vw" }}>お問い合わせ内容</h2>
             <PWrapper>{message}</PWrapper>
             <br />
             <br />
-            <button onClick={handleSubmit}>送信</button>
+            <ButtonStyled onClick={handleSubmit}>送信</ButtonStyled>
           </WrapperStyled>
         </ScrollChildrenWrpapper>
       </DetailWrapper>
@@ -63,12 +63,25 @@ const Contact02: React.FC = () => {
 
 const WrapperStyled = styled.div`
   overflow-y: auto;
-  max-height: 500px;
   margin: 20px 10vw;
 `;
 
 const PWrapper = styled.p`
   text-decoration: underline;
+  color: #fdfdfd;
+  font-size: 4.5vw;
+`;
+
+const ButtonStyled = styled.button`
+  transition: 0.2s ease-in-out;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  width: 60vw;
+  height: 40px;
+  color: #fff;
+  background-color: #3b2f2f;
+  border-radius: 20px;
 `;
 
 export default Contact02;

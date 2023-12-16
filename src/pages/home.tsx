@@ -50,7 +50,6 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
-  min-height: 100vh;
 `;
 
 const NewsWrapper01 = styled.div`
@@ -64,11 +63,10 @@ const NewsWrapper01 = styled.div`
 const NewsWrapper02 = styled.div`
   margin: ${window.innerWidth > window.innerHeight
     ? "70vw 5vw 5vw 5vw"
-    : "140vw 8vw 5vw 8vw"};
-  height: 1000px;
+    : "140vw 8vw 40vw 8vw"};
+  height: 50%;
   width: -webkit-fill-available;
   backdrop-filter: blur(70px);
-  opacity: 0.75;
   border-radius: 24px;
 `;
 

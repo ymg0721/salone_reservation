@@ -9,8 +9,8 @@ export const DetailWrapper = styled.div`
 `;
 
 export const ScrollChildrenWrpapper = styled.div`
-  margin: 140vw 8vw 5vw 8vw;
-  height: 1000px;
+  margin: 140vw 8vw 40vw 8vw;
+  height: 100%;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);
@@ -23,5 +23,4 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
-  min-height: 100vh;
 `;
