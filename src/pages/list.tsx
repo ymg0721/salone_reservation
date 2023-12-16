@@ -54,10 +54,28 @@ const List: React.FC = () => {
               <React.Fragment key={item.id}>
                 <DataWrapper>
                   <ImgWrapper src={item.src} alt="" />
-                  <h2>{item.title}</h2>
-                  <p>{item.date}</p>
+                  <h2
+                    style={{
+                      margin: "1vw 5.5vw 0",
+                      color: "#FDFDFD",
+                      fontSize: "4.5vw",
+                    }}
+                  >
+                    {item.title}
+                  </h2>
+                  <p
+                    style={{
+                      margin: "1vw 5vw",
+                      fontSize: "3.5vw",
+                      color: "#F7F7F7",
+                    }}
+                  >
+                    {item.date}
+                  </p>
                   <TextWrapper>{item.text}</TextWrapper>
-                  <button onClick={() => handleEvent(item)}>詳細画面へ</button>
+                  <ButtonStyled onClick={() => handleEvent(item)}>
+                    詳細画面へ
+                  </ButtonStyled>
                 </DataWrapper>
                 {/* データが偶数かつ最後のアイテムでない場合、改行を追加 */}
                 {index % 2 === 1 && index !== data.length - 1 && <br />}
@@ -97,7 +115,11 @@ const ListWrapper = styled.div`
 `;
 
 const ImgWrapper = styled.img`
-  width: 10vw;
+  border: 5px solid rgb(253, 253, 253);
+  box-shadow: 0 5px 0 #eeeeee;
+  border-radius: 1.5vw;
+  width: 26vw;
+  margin: auto;
 `;
 
 const TextWrapper = styled.p`
@@ -112,4 +134,14 @@ const TestWrpapper = styled.div`
   backdrop-filter: blur(70px);
   border-radius: 24px;
 `;
+
+const ButtonStyled = styled.button`
+  color: rgb(253, 253, 253);
+  margin: 0px 6vw;
+  backdrop-filter: blur(100px);
+  background: none;
+  border-radius: 2vw;
+  border-color: rgb(253, 253, 253);
+`;
+
 export default List;

@@ -22,15 +22,38 @@ const HomeLink: React.FC<BreadcrumbsProps> = ({ items }) => {
             }`}
           >
             {item.to ? (
-              <Link to={item.to} style={{ color: "black" }}>
+              <Link
+                to={item.to}
+                style={{
+                  color: "#F7F7F7",
+                  fontSize: "3vw",
+                  textDecoration: "none",
+                }}
+              >
                 {item.label}
               </Link>
             ) : (
-              <span>{item.label}</span>
+              <span
+                style={{
+                  color: "#F7F7F7",
+                  fontSize: "3vw",
+                  textDecoration: "none",
+                }}
+              >
+                {item.label}
+              </span>
             )}
           </div>
           {index < items.length - 1 && (
-            <div className="breadcrumb-item separator">{"　>　"}</div>
+            <div
+              style={{
+                color: "#F7F7F7",
+                fontSize: "3vw",
+                textDecoration: "none",
+              }}
+            >
+              {"　>　"}
+            </div>
           )}
         </React.Fragment>
       ))}
@@ -40,7 +63,8 @@ const HomeLink: React.FC<BreadcrumbsProps> = ({ items }) => {
 
 const HomeLinkStyled = styled.div`
   display: flex;
-  padding: 3vw 0 0 10vw;
+  padding: 3vw 0 0 5vw;
+  align-items: center;
 `;
 
 export default HomeLink;
