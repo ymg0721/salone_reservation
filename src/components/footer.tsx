@@ -33,8 +33,9 @@ const ImgWrapperStyled = styled.a`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  color: black;
+  color: #1b1811;
   padding: 10px;
+  font-weight: 500;
   border-radius: 30px;
 `;
 
