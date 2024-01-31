@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import ContactImage from "../components/contactImage";
@@ -13,27 +12,14 @@ const Contact01: React.FC = () => {
 
   // Change the route in your Axios request
   const handleSubmit = async () => {
-    try {
-      await axios.post(
-        "http://localhost:3001/api/v1/contact01",
-        {
-          email,
-          message,
-        },
-        { withCredentials: true }
-      );
-
-      if (email === "" && message === "") {
-        alert("メールアドレスと\nお問い合わせ内容を入力してください。");
-      } else if (email === "") {
-        alert("メールアドレスを入力してください。");
-      } else if (message === "") {
-        alert("お問い合わせ内容を入力してください。");
-      } else {
-        navigate("/contact02", { state: { email, message } });
-      }
-    } catch (err) {
-      console.error("送信に失敗", err);
+    if (email === "" && message === "") {
+      alert("メールアドレスと\nお問い合わせ内容を入力してください。");
+    } else if (email === "") {
+      alert("メールアドレスを入力してください。");
+    } else if (message === "") {
+      alert("お問い合わせ内容を入力してください。");
+    } else {
+      navigate("/contact02", { state: { email, message } });
     }
   };
   // パンくずリスト

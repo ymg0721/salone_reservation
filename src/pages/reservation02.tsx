@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import ReservationImage from "../components/reservationImage";
@@ -10,7 +9,6 @@ const Reservation: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  // const location = useLocation();
   const navigate = useNavigate();
 
   // パンくずリスト
@@ -21,30 +19,16 @@ const Reservation: React.FC = () => {
   ];
 
   const handleSubmit = async () => {
-    try {
-      await axios.post(
-        "http://localhost:3001/api/v1/reservation02",
-        {
-          name,
-          email,
-          phone,
-        },
-        { withCredentials: true }
-      );
-
-      if (name === "" && email === "" && phone === "") {
-        alert("入力していない箇所があります");
-      } else if (name === "") {
-        alert("入力していない箇所があります");
-      } else if (email === "") {
-        alert("入力していない箇所があります");
-      } else if (phone === "") {
-        alert("入力していない箇所があります");
-      } else {
-        navigate("/reservation03", { state: { name, email, phone } });
-      }
-    } catch (err) {
-      console.error("送信に失敗", err);
+    if (name === "" && email === "" && phone === "") {
+      alert("入力していない箇所があります");
+    } else if (name === "") {
+      alert("入力していない箇所があります");
+    } else if (email === "") {
+      alert("入力していない箇所があります");
+    } else if (phone === "") {
+      alert("入力していない箇所があります");
+    } else {
+      navigate("/reservation03", { state: { name, email, phone } });
     }
   };
 

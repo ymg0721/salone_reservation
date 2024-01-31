@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { format } from "date-fns";
 import HomeLink from "../components/homeLink";
 import Calendar from "../components/calender";
 import ReservationImage from "../components/reservationImage";
 import { Wrapper, DetailWrapper } from "../components/detailWrapper";
-
-interface ReservationType {
-  id: number;
-  src?: string;
-  title?: string;
-  date?: string;
-  detail?: string;
-}
+import { reservationData } from "../data/reservationData";
 
 const Reservation01: React.FC = () => {
   // パンくずリスト
@@ -22,15 +15,6 @@ const Reservation01: React.FC = () => {
   ];
 
   const [selectedDate, setSelectedDate] = useState("");
-  const [data, setData] = useState<ReservationType[]>([]);
-  // const navigate = useNavigate();
-  useEffect(() => {
-    fetch("http://localhost:3001/api/v1/calender")
-      .then((res) => res.json())
-      .then((json) => {
-        setData(json);
-      });
-  }, []);
 
   // 日付を選択する関数
   const handleDayClick = (date: Date) => {
@@ -46,7 +30,8 @@ const Reservation01: React.FC = () => {
           <HomeLink items={multipleBreadcrumbs} />
           <Calendar onDayClick={handleDayClick} />
           <ReservationWrapper>
-            {selectedDate && data.some((item) => item.date === selectedDate) ? (
+            {selectedDate &&
+            reservationData.some((item) => item.date === selectedDate) ? (
               <>
                 <h3>{String(selectedDate)}選択可能レッスン一覧</h3>
                 <a
@@ -55,7 +40,11 @@ const Reservation01: React.FC = () => {
                 >
                   <TicketStyled>
                     <img
-                      src={data.find((item) => item.date === selectedDate)?.src}
+                      src={
+                        reservationData.find(
+                          (item) => item.date === selectedDate
+                        )?.src
+                      }
                       alt=""
                       style={{ borderRadius: "15px", margin: "3vw" }}
                     />
@@ -69,12 +58,17 @@ const Reservation01: React.FC = () => {
                         {selectedDate}
                       </time>
                       <h2>
-                        {data.find((item) => item.date === selectedDate)?.title}
+                        {
+                          reservationData.find(
+                            (item) => item.date === selectedDate
+                          )?.title
+                        }
                       </h2>
                       <p>
                         {
-                          data.find((item) => item.date === selectedDate)
-                            ?.detail
+                          reservationData.find(
+                            (item) => item.date === selectedDate
+                          )?.detail
                         }
                       </p>
                     </H4Wrapper>

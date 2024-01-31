@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
-import axios from "axios";
 import HomeLink from "../components/homeLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import ContactImage from "../components/contactImage";
 import { Wrapper, DetailWrapper } from "../components/detailWrapper";
+// メール送信用モジュール
+import { render } from "@react-email/render";
+import sendgrid from "@sendgrid/mail";
+import { ContactEmail } from "../components/contactEmail";
 
 const Contact02: React.FC = () => {
   const location = useLocation();
@@ -12,21 +15,23 @@ const Contact02: React.FC = () => {
   const { email, message } = location.state || {};
 
   const handleSubmit = async () => {
-    try {
-      await axios.post(
-        "http://localhost:3001/api/v1/contact02",
-        {
-          email,
-          message,
-        },
-        { withCredentials: true }
-      );
-      navigate("/contact03", { state: { email, message } });
-      console.log("バック3に内容が送信されました。");
-    } catch (err) {
-      console.error("送信に失敗", err);
-    }
+    navigate("/contact03", { state: { email, message } });
   };
+  const SENDGRID_API_KEY =
+    "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";
+
+  sendgrid.setApiKey(SENDGRID_API_KEY);
+
+  const emailHtml = render(<ContactEmail url="https://example.com" />);
+
+  const options = {
+    from: "yonamasahiro@gmail.com",
+    to: "malcobb66@gmail.com",
+    subject: "hello world",
+    html: emailHtml,
+  };
+
+  sendgrid.send(options);
 
   // パンくずリスト
   const multipleBreadcrumbs = [

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import ListImage from "../components/listImage";
 import { DetailWrapper } from "../components/detailWrapper";
+import { listData } from "../data/listData";
 
 interface ListType {
   id: number;
@@ -19,18 +20,8 @@ const List: React.FC = () => {
     { label: "ホーム", to: "/home" },
     { label: "作品一覧画面", to: "/list" },
   ];
-  // 作品一覧画面全データ
-  const [data, setData] = useState<ListType[]>([]);
-  const navigate = useNavigate();
-  useEffect(() => {
-    fetch("http://localhost:3001/api/v1/list")
-      .then((res) => res.json())
-      .then((json) => {
-        setData(json);
-        console.log(json, "作品のDBに接続できました");
-      });
-  }, []);
 
+  const navigate = useNavigate();
   const handleEvent = (item: ListType) => {
     navigate("/list/detail", {
       state: {
@@ -50,7 +41,7 @@ const List: React.FC = () => {
         <TestWrpapper>
           <HomeLink items={multipleBreadcrumbs} />
           <ListWrapper>
-            {data.map((item, index) => (
+            {listData.map((item, index) => (
               <React.Fragment key={item.id}>
                 <DataWrapper>
                   <ImgWrapper src={item.src} alt="" />
@@ -62,7 +53,7 @@ const List: React.FC = () => {
                   </ButtonStyled>
                 </DataWrapper>
                 {/* データが偶数かつ最後のアイテムでない場合、改行を追加 */}
-                {index % 2 === 1 && index !== data.length - 1 && <br />}
+                {index % 2 === 1 && index !== listData.length - 1 && <br />}
               </React.Fragment>
             ))}
           </ListWrapper>
