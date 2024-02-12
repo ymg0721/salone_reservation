@@ -4,6 +4,9 @@ import styled from "@emotion/styled";
 // import HomeLink from "../components/homeLink";
 import ReservationImage from "../components/reservationImage";
 import { Wrapper, DetailWrapper } from "../components/detailWrapper";
+import Header from "../components/header";
+import FooterMenu from "../components/footer";
+import { menuItems } from "../data/menuItems";
 
 const Reservation: React.FC = () => {
   // パンくずリスト
@@ -25,6 +28,8 @@ const Reservation: React.FC = () => {
 
   return (
     <Wrapper>
+      <Header />
+
       <ReservationImage />
       <DetailWrapper>
         <ScrollChildrenWrpapper>
@@ -41,13 +46,14 @@ const Reservation: React.FC = () => {
             <PWrapper>{phone}</PWrapper>
             <h2 style={{ fontSize: "4vw" }}>レッスン日程：</h2>
             <PWrapper>aaaaaaaa</PWrapper>
-            <br /> <br />
+
             <ButtonStyled onClick={handleEvent}>
               この内容で確定する
             </ButtonStyled>
           </WrapperStyled>
         </ScrollChildrenWrpapper>
       </DetailWrapper>
+      <FooterMenu menuItems={menuItems} />
     </Wrapper>
   );
 };
@@ -79,7 +85,7 @@ const ButtonStyled = styled.button`
 `;
 
 const ScrollChildrenWrpapper = styled.div`
-  margin: 140vw 8vw 40vw 8vw;
+  margin: 40vw 8vw 40vw 8vw;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);

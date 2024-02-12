@@ -12,7 +12,6 @@ import Reservation04 from "../pages/reservation04";
 import Contact01 from "../pages/contact01";
 import Contact02 from "../pages/contact02";
 import Contact03 from "../pages/contact03";
-import Contact04 from "../pages/contact04";
 
 function RouterApp() {
   return (
@@ -29,7 +28,6 @@ function RouterApp() {
         <Route path="/contact01" element={<Contact01 />} />
         <Route path="/contact02" element={<Contact02 />} />
         <Route path="/contact03" element={<Contact03 />} />
-        <Route path="/contact04" element={<Contact04 />} />
       </Routes>
     </Router>
   );

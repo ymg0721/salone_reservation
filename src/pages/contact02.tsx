@@ -8,6 +8,9 @@ import { Wrapper, DetailWrapper } from "../components/detailWrapper";
 import { render } from "@react-email/render";
 import sendgrid from "@sendgrid/mail";
 import { ContactEmail } from "../components/contactEmail";
+import Header from "../components/header";
+import FooterMenu from "../components/footer";
+import { menuItems } from "../data/menuItems";
 
 const Contact02: React.FC = () => {
   const location = useLocation();
@@ -17,21 +20,21 @@ const Contact02: React.FC = () => {
   const handleSubmit = async () => {
     navigate("/contact03", { state: { email, message } });
   };
-  const SENDGRID_API_KEY =
-    "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";
+  // const SENDGRID_API_KEY =
+  //   "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";
 
-  sendgrid.setApiKey(SENDGRID_API_KEY);
+  // sendgrid.setApiKey(SENDGRID_API_KEY);
 
-  const emailHtml = render(<ContactEmail url="https://example.com" />);
+  // const emailHtml = render(<ContactEmail url="https://example.com" />);
 
-  const options = {
-    from: "yonamasahiro@gmail.com",
-    to: "malcobb66@gmail.com",
-    subject: "hello world",
-    html: emailHtml,
-  };
+  // const options = {
+  //   from: "yonamasahiro@gmail.com",
+  //   to: "malcobb66@gmail.com",
+  //   subject: "hello world",
+  //   html: emailHtml,
+  // };
 
-  sendgrid.send(options);
+  // sendgrid.send(options);
 
   // パンくずリスト
   const multipleBreadcrumbs = [
@@ -42,6 +45,7 @@ const Contact02: React.FC = () => {
 
   return (
     <Wrapper>
+      <Header />
       <ContactImage />
       <DetailWrapper>
         <ScrollChildrenWrpapper>
@@ -56,6 +60,7 @@ const Contact02: React.FC = () => {
           </WrapperStyled>
         </ScrollChildrenWrpapper>
       </DetailWrapper>
+      <FooterMenu menuItems={menuItems} />
     </Wrapper>
   );
 };

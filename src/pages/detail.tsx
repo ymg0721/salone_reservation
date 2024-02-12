@@ -4,6 +4,9 @@ import HomeLink from "../components/homeLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import Img2 from "../img/flower.svg";
 import DetailImage from "../components/detailImage";
+import Header from "../components/header";
+import FooterMenu from "../components/footer";
+import { menuItems } from "../data/menuItems";
 
 const Detail: React.FC = () => {
   // パンくずリスト
@@ -23,6 +26,7 @@ const Detail: React.FC = () => {
   };
   return (
     <Wrapper>
+      <Header />
       <DetailImage />
       <DetailWrapperStyled>
         <TestWrpapper>
@@ -31,7 +35,19 @@ const Detail: React.FC = () => {
           <ImgStyled src={src} alt="" />
           <H3Wrapper>{date}</H3Wrapper>
           <H2Wrapper>{title}</H2Wrapper>
-          <CardBackground>
+          <h3>この作品を</h3>
+          <button>
+            <a href="https://forms.gle/xv72LoY81wP1VWiH9">Googleで予約する</a>
+          </button>
+          <button>
+            <a href="https://www.instagram.com/venere_emi/">
+              Instagramで予約・お問い合わせ
+            </a>
+          </button>
+          <button>
+            <a href="/reservation01/">このHPで予約する。</a>
+          </button>
+          {/* <CardBackground>
             <ImgWrapper>
               <ImgStyled2 src={Img2} alt="" />
               <p>この作品への想い。</p>
@@ -42,9 +58,10 @@ const Detail: React.FC = () => {
               />
             </ImgWrapper>
             <PStyled>{text}</PStyled>
-          </CardBackground>
+          </CardBackground> */}
         </TestWrpapper>
       </DetailWrapperStyled>
+      <FooterMenu menuItems={menuItems} />
     </Wrapper>
   );
 };
@@ -114,12 +131,9 @@ const CardBackground = styled.div`
   border: 5px solid #e7e7e7;
   background-color: #ffffff;
   border-radius: 1vw;
-  overflow-x: auto; // 横スクロールを有効にする
-  white-space: nowrap; // 要素を横に並べるために必要
-  display: flex; // 要素を横に並べる
-
-  // 以下は必要に応じて調整
-  // gap: 20px; // 要素間の間隔を調整
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
   margin: 3vw 10vw 0;
   flex-direction: column;
 `;
@@ -134,7 +148,7 @@ const Wrapper = styled.div`
 `;
 
 const TestWrpapper = styled.div`
-  margin: 140vw 8vw 40vw 8vw;
+  margin: 40vw 8vw 40vw 8vw;
   height: 100%;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);

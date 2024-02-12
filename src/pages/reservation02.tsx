@@ -4,6 +4,9 @@ import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import ReservationImage from "../components/reservationImage";
 import { Wrapper, DetailWrapper } from "../components/detailWrapper";
+import Header from "../components/header";
+import FooterMenu from "../components/footer";
+import { menuItems } from "../data/menuItems";
 
 const Reservation: React.FC = () => {
   const [name, setName] = useState("");
@@ -34,6 +37,7 @@ const Reservation: React.FC = () => {
 
   return (
     <Wrapper>
+      <Header />
       <ReservationImage />
       <DetailWrapper>
         <ScrollChildrenWrpapper>
@@ -67,6 +71,7 @@ const Reservation: React.FC = () => {
           </WrapperStyled>
         </ScrollChildrenWrpapper>
       </DetailWrapper>
+      <FooterMenu menuItems={menuItems} />
     </Wrapper>
   );
 };
@@ -79,11 +84,11 @@ const WrapperStyled = styled.div`
 const InputStyled = styled.input`
   border-color: snow;
   height: 5vw;
-  width: 50vw;
+  width: 90%;
 `;
 
 const ScrollChildrenWrpapper = styled.div`
-  margin: 140vw 8vw 40vw 8vw;
+  margin: 25vw 8vw 40vw 8vw;
   height: 70%;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);

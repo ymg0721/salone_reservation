@@ -5,6 +5,9 @@ import HomeLink from "../components/homeLink";
 import ListImage from "../components/listImage";
 import { DetailWrapper } from "../components/detailWrapper";
 import { listData } from "../data/listData";
+import Header from "../components/header";
+import FooterMenu from "../components/footer";
+import { menuItems } from "../data/menuItems";
 
 interface ListType {
   id: number;
@@ -36,6 +39,7 @@ const List: React.FC = () => {
 
   return (
     <Wrapper>
+      <Header />
       <ListImage />
       <DetailWrapper>
         <TestWrpapper>
@@ -59,6 +63,7 @@ const List: React.FC = () => {
           </ListWrapper>
         </TestWrpapper>
       </DetailWrapper>
+      <FooterMenu menuItems={menuItems} />
     </Wrapper>
   );
 };
@@ -102,7 +107,7 @@ const TextWrapper = styled.p`
 `;
 
 const TestWrpapper = styled.div`
-  margin: 140vw 8vw 40vw 8vw;
+  margin: 40vw 8vw 40vw 8vw;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);

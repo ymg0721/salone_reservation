@@ -4,6 +4,9 @@ import styled from "@emotion/styled";
 import ContactImage from "../components/contactImage";
 import { Wrapper, DetailWrapper } from "../components/detailWrapper";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/header";
+import FooterMenu from "../components/footer";
+import { menuItems } from "../data/menuItems";
 
 const Contact03: React.FC = () => {
   const navigate = useNavigate();
@@ -13,6 +16,7 @@ const Contact03: React.FC = () => {
 
   return (
     <Wrapper>
+      <Header />
       <ContactImage />
       <DetailWrapper>
         <ScrollChildrenWrpapper>
@@ -28,6 +32,7 @@ const Contact03: React.FC = () => {
           </WrapperStyled>
         </ScrollChildrenWrpapper>
       </DetailWrapper>
+      <FooterMenu menuItems={menuItems} />
     </Wrapper>
   );
 };

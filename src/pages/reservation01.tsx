@@ -6,6 +6,9 @@ import Calendar from "../components/calender";
 import ReservationImage from "../components/reservationImage";
 import { Wrapper, DetailWrapper } from "../components/detailWrapper";
 import { reservationData } from "../data/reservationData";
+import Header from "../components/header";
+import FooterMenu from "../components/footer";
+import { menuItems } from "../data/menuItems";
 
 const Reservation01: React.FC = () => {
   // パンくずリスト
@@ -24,6 +27,7 @@ const Reservation01: React.FC = () => {
 
   return (
     <Wrapper>
+      <Header />
       <ReservationImage />
       <DetailWrapper>
         <TestWrpapper>
@@ -46,7 +50,11 @@ const Reservation01: React.FC = () => {
                         )?.src
                       }
                       alt=""
-                      style={{ borderRadius: "15px", margin: "3vw" }}
+                      style={{
+                        borderRadius: "15px",
+                        margin: "8vw 3vw 6vw",
+                        maxHeight: "30vw",
+                      }}
                     />
                     <H4Wrapper>
                       <time
@@ -83,21 +91,20 @@ const Reservation01: React.FC = () => {
           </ReservationWrapper>
         </TestWrpapper>
       </DetailWrapper>
+      <FooterMenu menuItems={menuItems} />
     </Wrapper>
   );
 };
 
 const H4Wrapper = styled.div`
-  margin-left: 5vw;
-  padding: 3vw 5vw;
-  border-radius: 0 30px 30px 0;
+  padding: 3vw 8vw;
+  text-align: left;
+  border-radius: 3px 3px 30px 30px;
   background: antiquewhite;
-  width: 60%;
 `;
 
 const TicketStyled = styled.div`
-  display: flex;
-  // padding: 3vw;
+  text-align: center;
   height: 100%;
   background-color: rgb(253, 253, 253);
   border-radius: 30px;
@@ -110,8 +117,8 @@ const ReservationWrapper = styled.div`
 `;
 
 const TestWrpapper = styled.div`
-  margin: 90vw 8vw 40vw 8vw;
-  height: 110%;
+  margin: 32vw 8vw 40vw 8vw;
+  height: 125%;
   width: -webkit-fill-available;
   -webkit-backdrop-filter: blur(70px);
   backdrop-filter: blur(70px);

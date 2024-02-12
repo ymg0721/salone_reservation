@@ -5,6 +5,9 @@ import styled from "@emotion/styled";
 import ReservationImage from "../components/reservationImage";
 import { Wrapper, DetailWrapper } from "../components/detailWrapper";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/header";
+import FooterMenu from "../components/footer";
+import { menuItems } from "../data/menuItems";
 
 const Reservation: React.FC = () => {
   // パンくずリスト
@@ -26,6 +29,7 @@ const Reservation: React.FC = () => {
 
   return (
     <Wrapper>
+      <Header />
       <ReservationImage />
       <DetailWrapper>
         <ScrollChildrenWrpapper>
@@ -43,6 +47,7 @@ const Reservation: React.FC = () => {
           </WrapperStyled>
         </ScrollChildrenWrpapper>
       </DetailWrapper>
+      <FooterMenu menuItems={menuItems} />
     </Wrapper>
   );
 };

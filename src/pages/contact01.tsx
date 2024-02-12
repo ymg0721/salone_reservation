@@ -4,6 +4,9 @@ import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
 import ContactImage from "../components/contactImage";
 import { Wrapper, DetailWrapper } from "../components/detailWrapper";
+import Header from "../components/header";
+import FooterMenu from "../components/footer";
+import { menuItems } from "../data/menuItems";
 
 const Contact01: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -30,6 +33,7 @@ const Contact01: React.FC = () => {
 
   return (
     <Wrapper>
+      <Header />
       <ContactImage />
       <DetailWrapper>
         <TestWrpapper>
@@ -58,6 +62,7 @@ const Contact01: React.FC = () => {
           </WrapperStyled>
         </TestWrpapper>
       </DetailWrapper>
+      <FooterMenu menuItems={menuItems} />
     </Wrapper>
   );
 };

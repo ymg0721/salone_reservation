@@ -3,6 +3,9 @@ import styled from "@emotion/styled";
 import { announcements } from "../data/announce";
 import TitleImage from "../components/titleImage";
 import HomeNotice from "../components/homeNotice";
+import Header from "../components/header";
+import FooterMenu from "../components/footer";
+import { menuItems } from "../data/menuItems";
 
 const fadeInAnimation = `
   @keyframes fadeIn {
@@ -23,6 +26,7 @@ const Container = styled.div`
 const Home: React.FC = () => {
   return (
     <Container>
+      <Header />
       <Wrapper>
         <TitleImage />
         <NewsWrapper01>
@@ -34,6 +38,7 @@ const Home: React.FC = () => {
           </NewsWrapper02>
         </NewsWrapper01>
       </Wrapper>
+      <FooterMenu menuItems={menuItems} />
     </Container>
   );
 };
@@ -62,7 +67,7 @@ const NewsWrapper01 = styled.div`
 
 const NewsWrapper02 = styled.div`
   margin: ${window.innerWidth > window.innerHeight
-    ? "70vw 5vw 5vw 5vw"
+    ? "50vw 5vw 5vw 5vw"
     : "140vw 8vw 40vw 8vw"};
   height: 50%;
   width: -webkit-fill-available;
