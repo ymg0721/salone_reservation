@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import HomeLink from "../components/homeLink";
-import { useLocation, useNavigate } from "react-router-dom";
-import Img2 from "../img/flower.svg";
+import { useLocation } from "react-router-dom";
 import DetailImage from "../components/detailImage";
 import Header from "../components/header";
 import FooterMenu from "../components/footer";
@@ -16,14 +15,10 @@ const Detail: React.FC = () => {
     { label: "作品詳細画面", to: "/list/detail" },
   ];
   const location = useLocation();
-  const navigate = useNavigate();
   const { state } = location;
 
   // stateから必要なデータを取り出す
-  const { src, title, date, text } = state;
-  const handleEvent = () => {
-    navigate("/reservation01", {});
-  };
+  const { src, title, date } = state;
   return (
     <Wrapper>
       <Header />
@@ -35,16 +30,27 @@ const Detail: React.FC = () => {
           <ImgStyled src={src} alt="" />
           <H3Wrapper>{date}</H3Wrapper>
           <H2Wrapper>{title}</H2Wrapper>
-          <h3>この作品を</h3>
-          <button>
-            <a href="https://forms.gle/xv72LoY81wP1VWiH9">Googleで予約する</a>
+          <h3 style={{ marginLeft: "10vw" }}>この作品を</h3>
+          <button style={{ margin: "0 0 5vw 10vw" }}>
+            <GoogleColor
+              href="https://forms.gle/xv72LoY81wP1VWiH9"
+              style={{
+                color: "#F7F7F7",
+                textDecoration: "none",
+              }}
+            >
+              Googleで予約する
+            </GoogleColor>
           </button>
-          <button>
-            <a href="https://www.instagram.com/venere_emi/">
+          <InstagrmButton>
+            <a
+              href="https://www.instagram.com/venere_emi/"
+              style={{ color: "white" }}
+            >
               Instagramで予約・お問い合わせ
             </a>
-          </button>
-          <button>
+          </InstagrmButton>
+          <button style={{ margin: "0 0 5vw 10vw" }}>
             <a href="/reservation01/">このHPで予約する。</a>
           </button>
           {/* <CardBackground>
@@ -66,6 +72,16 @@ const Detail: React.FC = () => {
   );
 };
 
+const GoogleColor = styled.a`
+  background: linear-gradient(#4285f4, #0f9d58, #f4b400, #db4437);
+  textdecoration: none;
+`;
+
+const InstagrmButton = styled.button`
+  margin: 0 0 5vw 10vw;
+  background: linear-gradient(#4c64d3, #cf2e92, #f26939, #ffdd83);
+`;
+
 const DetailWrapperStyled = styled.div`
   height: 100%;
   width: -webkit-fill-available;
@@ -85,32 +101,6 @@ const H3Wrapper = styled.p`
   color: #f7f7f7;
 `;
 
-const StyledInput = styled.input`
-  background: none;
-  border: none;
-  color: #555;
-  text-decoration: underline;
-  cursor: pointer;
-  font-size: 4vw;
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-const ImgWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const PStyled = styled.p`
-  margin-block-start: 0em;
-  padding: 0 20px 20px 20px;
-  word-wrap: break-word;
-  white-space: pre-wrap;
-  text-decoration: underline;
-`;
-
 const ImgStyled = styled.img`
   display: block;
   margin: 15vw auto 3vw;
@@ -119,23 +109,6 @@ const ImgStyled = styled.img`
   border: 5vw solid rgb(253, 253, 253);
   box-shadow: 0 5vw 0 #eeeeee;
   border-radius: 1.5vw;
-`;
-
-const ImgStyled2 = styled.img`
-  display: block;
-  margin: 10px;
-  max-width: 100%;
-`;
-
-const CardBackground = styled.div`
-  border: 5px solid #e7e7e7;
-  background-color: #ffffff;
-  border-radius: 1vw;
-  overflow-x: auto;
-  white-space: nowrap;
-  display: flex;
-  margin: 3vw 10vw 0;
-  flex-direction: column;
 `;
 
 const Wrapper = styled.div`

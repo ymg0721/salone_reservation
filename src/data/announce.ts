@@ -1,7 +1,7 @@
 export const announcements = [
   {
-    date: "2023/11/25",
-    text: "これは重要なお知らせの本文です。",
+    date: "2024/02/14",
+    text: "ミモザレッスン開始！",
     link: "/details/1",
   },
   {

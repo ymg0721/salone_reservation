@@ -124,9 +124,9 @@ const ButtonStyled = styled.button`
 `;
 
 const H2Styled = styled.h2`
-  margin: 1vw 5.5vw 0;
+  margin: 3vw 5.5vw 0;
   color: #fdfdfd;
-  font-size: 4.5vw;
+  font-size: 3vw;
 `;
 
 const PStyled = styled.p`
