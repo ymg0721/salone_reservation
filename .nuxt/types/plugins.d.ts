@@ -7,31 +7,23 @@ type IsAny<T> = 0 extends 1 & T ? true : false
 type InjectionType<A extends Plugin> = IsAny<A> extends true ? unknown : A extends Plugin<infer T> ? Decorate<T> : unknown
 
 type NuxtAppInjections = 
-  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.10.3_@opentelemetry+api@1.8.0_@types+node@20.12.12_@unocss+reset@0.60.3_axios@1.7.2_es_6bymwpsdonr7zw7ylaklmkxzqm/node_modules/nuxt/dist/app/plugins/check-outdated-build.client").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/@pinia+nuxt@0.5.1_rollup@4.18.0_typescript@5.4.5_vue@3.4.27/node_modules/@pinia/nuxt/dist/runtime/plugin.vue3").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.10.3_@opentelemetry+api@1.8.0_@types+node@20.12.12_@unocss+reset@0.60.3_axios@1.7.2_es_6bymwpsdonr7zw7ylaklmkxzqm/node_modules/nuxt/dist/head/runtime/plugins/unhead").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.10.3_@opentelemetry+api@1.8.0_@types+node@20.12.12_@unocss+reset@0.60.3_axios@1.7.2_es_6bymwpsdonr7zw7ylaklmkxzqm/node_modules/nuxt/dist/pages/runtime/plugins/router").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.10.3_@opentelemetry+api@1.8.0_@types+node@20.12.12_@unocss+reset@0.60.3_axios@1.7.2_es_6bymwpsdonr7zw7ylaklmkxzqm/node_modules/nuxt/dist/pages/runtime/plugins/prefetch.client").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.10.3_@opentelemetry+api@1.8.0_@types+node@20.12.12_@unocss+reset@0.60.3_axios@1.7.2_es_6bymwpsdonr7zw7ylaklmkxzqm/node_modules/nuxt/dist/pages/runtime/plugins/check-if-page-unused").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/@nuxtjs+i18n@8.3.1_rollup@4.18.0_vue@3.4.27/node_modules/@nuxtjs/i18n/dist/runtime/plugins/i18n").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/nuxt-jsonld@2.0.8_typescript@5.4.5/node_modules/nuxt-jsonld/dist/runtime/plugin").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/@nuxt+devtools@1.3.1_@unocss+reset@0.60.3_axios@1.7.2_floating-vue@5.2.2_nuxt@3.10.3_rollup@4_qk5xxccqses5btvsjijz23nbdm/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.server").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/@nuxt+devtools@1.3.1_@unocss+reset@0.60.3_axios@1.7.2_floating-vue@5.2.2_nuxt@3.10.3_rollup@4_qk5xxccqses5btvsjijz23nbdm/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/@zadigetvoltaire+nuxt-gtm@0.0.13_nuxt@3.10.3_rollup@4.18.0_vue@3.4.27/node_modules/@zadigetvoltaire/nuxt-gtm/dist/runtime/plugin").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.10.3_@opentelemetry+api@1.8.0_@types+node@20.12.12_@unocss+reset@0.60.3_axios@1.7.2_es_6bymwpsdonr7zw7ylaklmkxzqm/node_modules/nuxt/dist/app/plugins/chunk-reload.client").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.10.3_@opentelemetry+api@1.8.0_@types+node@20.12.12_@unocss+reset@0.60.3_axios@1.7.2_es_6bymwpsdonr7zw7ylaklmkxzqm/node_modules/nuxt/dist/app/plugins/check-if-layout-used").default> &
-  InjectionType<typeof import("../../node_modules/.pnpm/@pinia-plugin-persistedstate+nuxt@1.2.0_@pinia+nuxt@0.5.1_pinia@2.1.7_rollup@4.18.0/node_modules/@pinia-plugin-persistedstate/nuxt/dist/runtime/plugin").default> &
-  InjectionType<typeof import("../../src/plugins/gsap").default> &
-  InjectionType<typeof import("../../src/plugins/add-trailing-slash").default> &
-  InjectionType<typeof import("../../src/plugins/i18n").default> &
-  InjectionType<typeof import("../../src/plugins/naive-ui").default> &
-  InjectionType<typeof import("../../src/plugins/sentry.client").default>
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.5/node_modules/nuxt/dist/app/plugins/revive-payload.client.js").default> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.5/node_modules/nuxt/dist/head/runtime/plugins/unhead.js").default> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.5/node_modules/nuxt/dist/app/plugins/router.js").default> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.5/node_modules/nuxt/dist/app/plugins/navigation-repaint.client.js").default> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.5/node_modules/nuxt/dist/app/plugins/check-outdated-build.client.js").default> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.5/node_modules/nuxt/dist/app/plugins/revive-payload.server.js").default> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.5/node_modules/nuxt/dist/app/plugins/chunk-reload.client.js").default> &
+  InjectionType<typeof import("../../node_modules/.pnpm/@nuxt+devtools@1.4.2_vite@5.4.5_vue@3.5.5/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.server.js").default> &
+  InjectionType<typeof import("../../node_modules/.pnpm/@nuxt+devtools@1.4.2_vite@5.4.5_vue@3.5.5/node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js").default> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.5/node_modules/nuxt/dist/app/plugins/dev-server-logs.js").default> &
+  InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.13.1_vite@5.4.5/node_modules/nuxt/dist/app/plugins/check-if-layout-used.js").default>
 
 declare module '#app' {
   interface NuxtApp extends NuxtAppInjections { }
 
   interface NuxtAppLiterals {
-    pluginName: 'nuxt:head' | 'nuxt:router' | 'nuxt:global-components' | 'nuxt:prefetch' | 'nuxt:checkIfPageUnused' | 'i18n:plugin' | 'nuxt:chunk-reload' | 'nuxt:checkIfLayoutUsed'
+    pluginName: 'nuxt:revive-payload:client' | 'nuxt:head' | 'nuxt:router' | 'nuxt:revive-payload:server' | 'nuxt:chunk-reload' | 'nuxt:global-components' | 'nuxt:checkIfLayoutUsed'
   }
 }
 
