@@ -1,0 +1,1 @@
+export { default } from "file:///Users/apple/salone_reservation/node_modules/.pnpm/@nuxt+vite-builder@3.10.3_@types+node@20.12.12_eslint@8.57.0_rollup@4.18.0_sass@1.77.2_stylel_i52agxoztx33pszisb4e6kjwfm/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
