@@ -32,7 +32,7 @@ const Contact02: React.FC = () => {
         <ScrollChildrenWrpapper>
           <HomeLink items={multipleBreadcrumbs} />
           <WrapperStyled>
-            <h1 style={{ fontSize: "4vw" }}>お問い合わせ内容確認</h1>
+            <h1 style={{ fontSize: "4vw" }}>お問い合わせ内容確認テスト</h1>
             <h2 style={{ fontSize: "4vw" }}>ご自身のメールアドレス</h2>
             <PWrapper>{email}</PWrapper>
             <h2 style={{ fontSize: "4vw" }}>お問い合わせ内容</h2>
